@@ -1,0 +1,15 @@
+{
+    "name": "Deliverit",
+    "short_name": "Deliverit",
+    "start_url": "control.html",
+    "display": "standalone",
+    "background_color": "#E7EFF8",
+    "theme_color": "#3648CE",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "assets/logo.png",
+            "type": "image/png", "sizes": "512x512"
+        }
+    ]
+}

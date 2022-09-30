@@ -1,0 +1,210 @@
+html {
+    height: 100%;
+}
+body {
+    background-color: #E7EFF8;
+    font-family: 'Jua', sans-serif !important;
+    height: 100%;
+    margin: 0;
+    color: #00002C;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.cssbuttons-io-button {
+    background: #3648ce;
+    color: white;
+    font-family: inherit;
+    padding: 0.35em;
+    padding-left: 1.2em;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 0.9em;
+    border: none;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0 0 1.6em -0.6em #714da6;
+    overflow: hidden;
+    position: relative;
+    height: 2.8em;
+    padding-right: 3.3em;
+}
+
+.cssbuttons-io-button .icon {
+    background: white;
+    margin-left: 1em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 0.7em;
+    box-shadow: 0.1em 0.1em 0.6em 0.2em #3648ce;
+    right: 0.3em;
+    transition: all 0.3s;
+}
+
+.cssbuttons-io-button:hover .icon {
+    width: calc(100% - 0.6em);
+}
+
+.cssbuttons-io-button .icon svg {
+    width: 1.1em;
+    transition: transform 0.3s;
+    color: #3648ce;
+}
+
+.cssbuttons-io-button:hover .icon svg {
+    transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+    transform: scale(0.95);
+}
+
+.imgcont {
+    background-color: white;
+    height: 30vh;
+    width: 80%;
+    border-radius: 30px;
+    margin-bottom: 30vh;
+    box-shadow:  20px 20px 60px #bebebeb7,
+     -20px -20px 60px #ffffff;
+     position: relative;
+     text-align: center;
+     overflow: hidden;
+}
+
+.container p {
+    font-size: 0.7rem;
+    color: #7d8191;
+}
+.nameIt {
+    color: rgb(199, 23, 23);
+}
+.txt {
+    z-index: 2;
+    font-size: 2rem;
+    font-family: 'Roboto Slab', serif;
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+}
+
+.svgs {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.svgAnimation {
+    text-align: center;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    animation-timing-function:cubic-bezier(0.35, 0.285, 0.68, 0.53);
+    animation-iteration-count: infinite;
+}
+
+.drone {
+    left: -40px;
+    animation-duration: 60s;
+    animation-name: drone;
+}
+.camion {
+    left: -100px;
+    animation-duration: 50s;
+    animation-name: camion;
+}
+.moto {
+    left: -60px;
+    animation-duration: 40s;
+    animation-name: moto;
+}
+.avion {
+    left: -90px;
+    animation-duration:30s;
+    animation-name: avion;
+}
+.globo {
+    left: -40px;
+    animation-duration: 45s;
+    animation-name: globo;
+}
+
+@keyframes drone {
+    0% {
+        left: -40px;
+    }
+    100% {
+        left: 100%;
+    }
+}
+@keyframes camion {
+    0% {
+        left: -200px;
+    }
+    100% {
+        left: 100%;
+    }
+}
+@keyframes moto {
+    0% {
+        left: -60px;
+    }
+    100% {
+        left: 100%;
+    }
+}
+@keyframes avion {
+    0% {
+        left: -80px;
+        top: 0;
+    }
+    100% {
+        left: 100%;
+        top: -10%;
+    }
+}
+@keyframes globo {
+    0% {
+        left: -40px;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes puff-in-center {
+    0% {
+        -webkit-transform: scale(2);
+                transform: scale(2);
+        -webkit-filter: blur(4px);
+                filter: blur(4px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: scale(1);
+                transform: scale(1);
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+@media (min-height: 900px) {
+    .svgAnimation {
+        width: 50%;
+        margin-left: 25%;
+    }
+}
