@@ -1,0 +1,135 @@
+.viewer{
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background-image: url("/assets/svg/bgLogin.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.322);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 80%;
+    height: 60%;
+}
+
+.headerLog {
+    display: flex;
+    flex-direction: row;
+}
+
+.headerLog h5 {
+    font-size: 2rem;
+    flex: 1;
+    text-align: center;
+    padding-bottom: 10px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.headerLog .active {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.bodyLog {
+    position: relative;
+    height: 70%;
+}
+
+.bsct{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+.contSign{
+    display: none;
+}
+
+.input {
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    background-color: #e8e8e85e;
+    font-size: medium;
+    font-weight: bold;
+    margin-bottom: 32px;
+}
+   
+.input:focus {
+    outline-color: rgba(255, 255, 255, 0.321);
+}
+
+button {
+    --primary-color: #3648ce;
+    --secondary-color: #fff;
+    --hover-color: #111;
+    --arrow-width: 10px;
+    --arrow-stroke: 2px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 20px;
+    color: var(--secondary-color);
+    padding: 1em 1.8em;
+    background: var(--primary-color);
+    display: flex;
+    transition: 0.2s background;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+  }
+  
+  button .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  button .arrow {
+    margin-top: 1px;
+    width: var(--arrow-width);
+    background: var(--primary-color);
+    height: var(--arrow-stroke);
+    position: relative;
+    transition: 0.2s;
+  }
+  
+  button .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid var(--secondary-color);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg);
+  }
+  
+  button:hover {
+    background-color: var(--hover-color);
+  }
+  
+  button:hover .arrow {
+    background: var(--secondary-color);
+  }
+  
+  button:hover .arrow:before {
+    right: 0;
+  }

@@ -118,27 +118,27 @@ body {
 
 .drone {
     left: -40px;
-    animation-duration: 60s;
+    animation-duration: 50s;
     animation-name: drone;
 }
 .camion {
     left: -100px;
-    animation-duration: 50s;
+    animation-duration: 40s;
     animation-name: camion;
 }
 .moto {
     left: -60px;
-    animation-duration: 40s;
+    animation-duration: 30s;
     animation-name: moto;
 }
 .avion {
     left: -90px;
-    animation-duration:30s;
+    animation-duration:20s;
     animation-name: avion;
 }
 .globo {
     left: -40px;
-    animation-duration: 45s;
+    animation-duration: 35s;
     animation-name: globo;
 }
 
