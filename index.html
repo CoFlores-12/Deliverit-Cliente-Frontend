@@ -8,144 +8,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jua&family=Lexend&display=swap" rel="stylesheet">
     <title>Deliverit</title>
-    <style>
-        html {
-            height: 100%;
-        }
-        body {
-            background-color: #E7EFF8;
-            font-family: 'Jua', sans-serif !important;
-            height: 100%;
-            margin: 0;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-        .cssbuttons-io-button {
-            background: #3648ce;
-            color: white;
-            font-family: inherit;
-            padding: 0.35em;
-            padding-left: 1.2em;
-            font-size: 17px;
-            font-weight: 500;
-            border-radius: 0.9em;
-            border: none;
-            letter-spacing: 0.05em;
-            display: flex;
-            align-items: center;
-            box-shadow: inset 0 0 1.6em -0.6em #714da6;
-            overflow: hidden;
-            position: relative;
-            height: 2.8em;
-            padding-right: 3.3em;
-        }
-
-        .cssbuttons-io-button .icon {
-            background: white;
-            margin-left: 1em;
-            position: absolute;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 2.2em;
-            width: 2.2em;
-            border-radius: 0.7em;
-            box-shadow: 0.1em 0.1em 0.6em 0.2em #3648ce;
-            right: 0.3em;
-            transition: all 0.3s;
-        }
-
-        .cssbuttons-io-button:hover .icon {
-            width: calc(100% - 0.6em);
-        }
-
-        .cssbuttons-io-button .icon svg {
-            width: 1.1em;
-            transition: transform 0.3s;
-            color: #3648ce;
-        }
-
-        .cssbuttons-io-button:hover .icon svg {
-            transform: translateX(0.1em);
-        }
-
-        .cssbuttons-io-button:active .icon {
-            transform: scale(0.95);
-        }
-
-        .img {
-            background-color: white;
-            height: 50vh;
-            width: 80%;
-            border-radius: 30px;
-            margin-bottom: 10vh;
-            box-shadow:  20px 20px 60px #bebebeb7,
-             -20px -20px 60px #ffffff;
-             position: relative;
-             text-align: center;
-        }
-
-        .container p {
-            font-size: 0.7rem;
-            color: #7d8191;
-        }
-        .nameIt {
-            color: rgb(199, 23, 23);
-        }
-        .txt {
-            z-index: 2;
-            font-size: 2rem;
-            font-family: 'Roboto Slab', serif;
-            position: absolute;
-            bottom: 5px;
-            width: 100%;
-            animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-        }
-
-
-        @-webkit-keyframes puff-in-center {
-        0% {
-            -webkit-transform: scale(2);
-                    transform: scale(2);
-            -webkit-filter: blur(4px);
-                    filter: blur(4px);
-            opacity: 0;
-        }
-        100% {
-            -webkit-transform: scale(1);
-                    transform: scale(1);
-            -webkit-filter: blur(0px);
-                    filter: blur(0px);
-            opacity: 1;
-        }
-        }
-        @keyframes puff-in-center {
-        0% {
-            -webkit-transform: scale(2);
-                    transform: scale(2);
-            -webkit-filter: blur(4px);
-                    filter: blur(4px);
-            opacity: 0;
-        }
-        100% {
-            -webkit-transform: scale(1);
-                    transform: scale(1);
-            -webkit-filter: blur(0px);
-                    filter: blur(0px);
-            opacity: 1;
-        }
-        }
-
-    </style>
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/logo.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#3648CE" />
+    <meta name="theme-color" content="#3648CE" />
 </head>
 <body>
     <div class="container">
-        <div class="img">
+        <div class="imgcont">
+            <div class="svgs">
+                <center>
+                    <img class="svgAnimation" src="assets/svg/background.svg" alt="">
+                    <img src="assets/svg/avion.svg" alt="" class="svgAnimation avion">
+                    <img src="assets/svg/camion.svg" alt="" class="svgAnimation camion">
+                    <img src="assets/svg/drone.svg" alt="" class="svgAnimation drone">
+                    <img src="assets/svg/globo.svg" alt="" class="svgAnimation globo">
+                    <img src="assets/svg/moto.svg" alt="" class="svgAnimation moto">
+                </center>
+            </div>
             <h1 class="txt animate__animated animate__backInDown">Deliver<span class="nameIt">it</span></h1>
         </div>
         <p>for a best experience install the PWA version</p>
