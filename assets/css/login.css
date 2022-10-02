@@ -3,10 +3,43 @@
   padding-top: 15vh;
 }
 
+body {
+  font-family: 'Noto Sans JP', sans-serif !important;
+}
+
 .active {
   box-shadow: inset 6px 6px 6px #CBD4E3,
   inset -6px -6px 6px #ffffffc7 ;
 }
+
+.fb-login-button {
+  border-radius: 20px; 
+  overflow: hidden;
+  box-shadow: 6px 6px 12px #CBD4E3,
+             -6px -6px 12px #fff;
+}
+
+.divider {
+  display: flex;
+  width: 70%;
+  color: rgb(158, 158, 158);
+}
+.divider:before, .divider:after {
+  content: "";
+  flex: 1;
+}
+.line {
+  align-items: center;
+  margin: 1em -1em;
+}
+.line:before, .line:after {
+  height: 1px;
+  margin: 0 1em;
+}
+.one-line:before, .one-line:after {
+  background: rgb(158, 158, 158);
+}
+
 
 .bodyLog {
   width: 80%;
@@ -70,7 +103,7 @@
 .btn {
   outline: none;
   border: none;
-  width: 70%;
+  width: 50%;
   margin-top: 20px;
   border-radius: 15px;
   background-color: #3648ce;
