@@ -1,0 +1,9 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #E7EFF8;
+    font-family: 'Jua', sans-serif !important;
+    margin: 0;
+    color: #00002C;
+    user-select: none;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <title>Deliverit | Login</title>
+    <!-- PWA -->
+    <link rel="apple-touch-icon" href="/assets/logo.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#E7EFF8" />
+    <meta name="theme-color" content="#E7EFF8"/>
+    <link rel="shortcut icon" href="/assets/logo.png"" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Lexend&family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body>
+    <div class="viewer">
+        <div class="container">
+            <div class="headerLog">
+                <div data-name="Login" style="border-radius: 30px 0px 0px 30px;" onclick="logTabs(this);" class="logh5 active">
+                    <h5 class="">Login</h5>
+                </div>
+                <div data-name="Sign" style="border-radius: 0px 30px 30px 0px;"   onclick="logTabs(this);" class="logh5">
+                    <h5 >Sign up</h5>
+                </div>
+            </div>
+            <div class="bodyLog">
+
+                <div class="contLog bsct">
+                    <input type="text" name="username" class="input" placeholder="Username">
+                    <input type="password" name="password" class="input" placeholder="Password">
+                    <button class="btn">
+                        Log in
+                        <div class="arrow-wrapper">
+                            <div class="arrow"></div>
+                        </div>
+                    </button>
+                    <h2 class="divider line one-line">or</h2>
+                    <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                </div>
+
+                <div class="contSign bsct">
+                    <input type="text" name="username" class="input" placeholder="Username">
+                    <input type="text" name="Email" class="input" placeholder="Email">
+                    <input type="password" name="password" class="input" placeholder="Password">
+                    <button class="btn">
+                        Sign up
+                        <div class="arrow-wrapper">
+                            <div class="arrow"></div>
+
+                        </div>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/js/cash.min.js"></script>
+    <script src="/assets/js/login.js"></script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0&appId=5274424982683255&autoLogAppEvents=1" nonce="1EmDZPtt"></script>
+<script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '5274424982683255',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v15.0'
+      });
+        
+      FB.AppEvents.logPageView();   
+        
+    };
+  
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+
+
+    function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+            console.log(response);
+        });
+    }
+  </script>
+
+          
+</body>
+</html>
