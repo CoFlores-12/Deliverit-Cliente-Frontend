@@ -20,14 +20,18 @@
     <div class="viewer">
         <div class="container">
             <div class="headerLog">
-                <h5 onclick="logTabs(this);" class="active">Login</h5>
-                <h5 onclick="logTabs(this);">Sign up</h5>
+                <div data-name="Login" style="border-radius: 30px 0px 0px 30px;" onclick="logTabs(this);" class="logh5 active">
+                    <h5 class="">Login</h5>
+                </div>
+                <div data-name="Sign"  onclick="logTabs(this);" class="logh5">
+                    <h5 >Sign up</h5>
+                </div>
             </div>
             <div class="bodyLog">
                 <div class="contLog bsct">
                     <input type="text" name="username" class="input" placeholder="Username">
                     <input type="password" name="password" class="input" placeholder="Password">
-                    <button>
+                    <button class="btn">
                         Log in
                         <div class="arrow-wrapper">
                             <div class="arrow"></div>
@@ -38,7 +42,7 @@
                     <input type="text" name="username" class="input" placeholder="Username">
                     <input type="text" name="Email" class="input" placeholder="Email">
                     <input type="password" name="password" class="input" placeholder="Password">
-                    <button>
+                    <button class="btn">
                         Sign up
                         <div class="arrow-wrapper">
                             <div class="arrow"></div>
