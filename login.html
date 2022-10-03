@@ -10,11 +10,16 @@
     <meta name="apple-mobile-web-app-status-bar" content="#E7EFF8" />
     <meta name="theme-color" content="#E7EFF8"/>
     <link rel="shortcut icon" href="/assets/logo.png"" type="image/x-icon">
+
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jua&family=Lexend&family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="assets/css/theme.css">
     <link rel="stylesheet" href="assets/css/login.css">
+
+    <meta name="google-signin-client_id" content="Y156286288006-gh087gnfo5j1oc9e7g88oui46986r4pn.apps.googleusercontent.com">
 </head>
 <body>
     <div class="viewer">
@@ -30,16 +35,23 @@
             <div class="bodyLog">
 
                 <div class="contLog bsct">
-                    <input type="text" name="username" class="input" placeholder="Username">
+                    <input type="text" name="email" class="input" placeholder="Email">
                     <input type="password" name="password" class="input" placeholder="Password">
-                    <button class="btn">
+                    <button onclick="loginClick();" class="btn">
                         Log in
                         <div class="arrow-wrapper">
                             <div class="arrow"></div>
                         </div>
                     </button>
                     <h2 class="divider line one-line">or</h2>
-                    <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <div class="ORLogin">
+                        <div class="FBButton" onclick="fb_login();">
+                            <img width="100%" src="/assets/img/fb.png" alt="">
+                        </div>
+                        <div class="GButton" id="customBtn">
+                            <img width="100%" src="/assets/img/g.png" alt="">
+                        </div>
+                    </div>
                 </div>
 
                 <div class="contSign bsct">
@@ -59,39 +71,84 @@
         </div>
     </div>
 
+    <div id="fb-root"></div>
+
     <script src="/assets/js/cash.min.js"></script>
     <script src="/assets/js/login.js"></script>
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0&appId=5274424982683255&autoLogAppEvents=1" nonce="1EmDZPtt"></script>
-<script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '5274424982683255',
-        cookie     : true,
-        xfbml      : true,
-        version    : 'v15.0'
+    
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/api:client.js"></script>
+    <script>
+
+        //facebook login API
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId   : '476594931046059',
+                oauth   : true,
+                status  : true, // check login status
+                cookie  : true, // enable cookies to allow the server to access the session
+                xfbml   : true // parse XFBML
+            });
+
+        };
+
+        function fb_login(){
+            FB.login(function(response) {
+
+                if (response.authResponse) {
+                    console.log('Welcome!  Fetching your information.... ');
+                    //console.log(response); // dump complete info
+                    access_token = response.authResponse.accessToken; //get access token
+                    user_id = response.authResponse.userID; //get FB UID
+
+                    FB.api('/me', function(response) {
+                        user_email = response.email; //get user email
+                        console.log(response);           
+                    });
+
+                } else {
+                    //user hit cancel button
+                    console.log('User cancelled login or did not fully authorize.');
+
+                }
+            }, {
+                scope: 'public_profile,email'
+            });
+        }
+        (function() {
+            var e = document.createElement('script');
+            e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+            e.async = true;
+            document.getElementById('fb-root').appendChild(e);
+        }());
+
+        //Google API
+        var googleUser = {};
+  var startApp = function() {
+    gapi.load('auth2', function(){
+      // Retrieve the singleton for the GoogleAuth library and set up the client.
+      auth2 = gapi.auth2.init({
+        client_id: 'Y156286288006-gh087gnfo5j1oc9e7g88oui46986r4pn.apps.googleusercontent.com',
+        cookiepolicy: 'single_host_origin',
+        // Request scopes in addition to 'profile' and 'email'
+        //scope: 'additional_scope'
       });
-        
-      FB.AppEvents.logPageView();   
-        
-    };
-  
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "https://connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
+      attachSignin(document.getElementById('customBtn'));
+    });
+  };
 
-
-    function checkLoginState() {
-        FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-            console.log(response);
+  function attachSignin(element) {
+    console.log(element.id);
+    auth2.attachClickHandler(element, {},
+        function(googleUser) {
+          console.log(googleUser.getBasicProfile());
+        }, function(error) {
+          alert(JSON.stringify(error, undefined, 2));
         });
-    }
-  </script>
+  }
+
+  startApp();
+    </script>
 
           
 </body>
