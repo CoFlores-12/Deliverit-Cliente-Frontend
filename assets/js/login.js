@@ -11,3 +11,8 @@ function logTabs(element) {
     $(element).addClass('active');
 
 }
+
+function loginClick() {
+    document.cookie = 'username='+$('input[name=email]').val()+'; expire=31536000;';
+    window.location.href = 'home.html';
+}

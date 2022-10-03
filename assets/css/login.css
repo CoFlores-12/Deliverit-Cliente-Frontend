@@ -7,16 +7,36 @@ body {
   font-family: 'Noto Sans JP', sans-serif !important;
 }
 
-.active {
+.ORLogin {
+  display: flex; 
+  flex-direction: row;
+}
+
+.FBButton, .GButton {
+  width: 30px;
+  height: 30px;
+  background-color: #ECF0F3;
+  box-shadow: 6px 6px 12px #CBD4E3,
+             -6px -6px 12px #fff;
+  border-radius: 50%;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  box-shadow: inset 6px 6px 6px #cbd4e333,
+  inset -6px -6px 6px #00000025 ;
+}
+
+.FBButton:hover, .GButton:hover {
   box-shadow: inset 6px 6px 6px #CBD4E3,
   inset -6px -6px 6px #ffffffc7 ;
 }
 
-.fb-login-button {
-  border-radius: 20px; 
-  overflow: hidden;
-  box-shadow: 6px 6px 12px #CBD4E3,
-             -6px -6px 12px #fff;
+.active {
+  box-shadow: inset 6px 6px 6px #CBD4E3,
+  inset -6px -6px 6px #ffffffc7 ;
 }
 
 .divider {
