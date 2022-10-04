@@ -1,10 +1,21 @@
 const assets = [
     "/",
     "/assets/logo.png",
+    "/assets/css/theme.css",
+    "/assets/img/fb.png",
+    "/assets/img/g.png",
+    "/assets/js/cash.min.js",
+    "/manifest.json",
 
     "/home.html",
     "/assets/css/home.css",
     "/assets/js/home.js",
+
+    "/assets/img/iconos/coctel.png",
+    "/assets/img/iconos/comida-rapida.png",
+    "/assets/img/iconos/gadgets.png",
+    "/assets/img/iconos/salud.png",
+    "/assets/img/iconos/tienda.png",
 
     "/login.html",
     '/assets/css/login.css',
@@ -12,7 +23,7 @@ const assets = [
 ];
 
 self.addEventListener("install", installEvent => {
-    installEvent.waitUtil(
+    installEvent.waitUntil(
         caches.open("Deliverit-caches").then(cache => {
             cache.addAll(assets);
         })

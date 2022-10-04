@@ -15,30 +15,103 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <link rel="stylesheet" href="/assets/css/theme.css">
     <title>Deliverit | Home</title>
+
     <!-- PWA -->
     <link rel="manifest" href="manifest.json"/>
     <link rel="apple-touch-icon" href="/assets/logo.png" />
     <meta name="apple-mobile-web-app-status-bar" content="#E7EFF8" />
     <meta name="theme-color" content="#E7EFF8"/>
     <link rel="shortcut icon" href="/assets/logo.png"" type="image/x-icon">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Lexend&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/theme.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Lexend&family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets//css/home.css">
+    <link rel="stylesheet" href="/assets/css/animate.min.css">
 </head>
 <body>
 
-    <center>
-        <h1>HOME</h1>
-        <h5 id="name"></h5>
-    </center>
+    <main class="app bg-color-primary">
+        <!-- ========== Start side ========== -->
+        <sidebar class="sidebar flex-colum ">
+            <div class="headerSide flex-colum ">
+                <img style="border-radius: 50%;"  src="/assets/img/avatar.jpg" alt="">
+                <h4 id="username">{Username}</h4>
+            </div>
+            <div class="bodySide flex-colum ">
+                <button class="btn btnside btnsideActive" type="button"><i class="fa-solid iconside fa-house"></i> Home</button>
+                <button class="btn btnside" type="button"><i class="fa-solid iconside fa-gear"></i> Settings</button>
+            </div>
+            <div class="footerSide">
+                <button onclick="logout();" class="btn btnside" type="button"><i class="fa-solid iconside fa-door-open"></i> Log Out</button>
+            </div>
+                
+        
+        </sidebar>
+        <!-- ==========  End side  ========== -->
 
+        <!-- ========== Start container ========== -->
+        <div class="container-app">
+            <div class="catselec animate__animated animate__fadeInUp flex-colum">
+                <div class="backCatSel" onclick="closeCatSel();"><i class="fa-solid fa-arrow-left"></i></div>
+                <div id="nameCatSel"></div>
+            </div>
+            <div class="cater">
+                <div class="backMenu" onclick="sidebar();"></div>
+                <navs class="navbar">
+                    <div class="navTop">
+                        <i onclick="sidebar();" class="fa-solid fa-bars"></i>
+                        <img src="/assets/img/avatar.jpg" alt="" width="5%" >
+                    </div>
+                </navs>
 
+                <div id="categorias">
+
+                    <div class="animate__animated animate__bounceIn loading categoria-elemet">
+                            <div class="elLoad">
+                                    
+                            </div>
+                    </div>
+
+                    <div class="animate__animated animate__bounceIn loading categoria-elemet">
+                            <div class="elLoad">
+                                    
+                            </div>
+                    </div>
+
+                    <div class="animate__animated animate__bounceIn loading categoria-elemet">
+                            <div class="elLoad">
+                                    
+                            </div>
+                    </div>
+
+                    <div class="animate__animated animate__bounceIn loading categoria-elemet">
+                            <div class="elLoad">
+                                    
+                            </div>
+                    </div>
+
+                    <div class="animate__animated animate__bounceIn loading categoria-elemet">
+                            <div class="elLoad">
+                                    
+                            </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- ==========  End container  ========== -->
+    </main>
+
+    <script src="https://kit.fontawesome.com/1e8824e8c2.js" crossorigin="anonymous"></script>
     <script src="/assets/js/home.js"></script>
     <script src="/assets/js/cash.min.js"></script>
     <script>
-        $('#name').html(cookieValue);
+        $('#username').html(cookieValue);
     </script>
 </body>
 </html>

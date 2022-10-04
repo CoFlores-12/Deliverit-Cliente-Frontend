@@ -2,8 +2,34 @@ html, body {
     height: 100%;
     width: 100%;
     background-color: #E7EFF8;
-    font-family: 'Jua', sans-serif !important;
+    font-family: 'Noto Sans JP', sans-serif !important;
     margin: 0;
     color: #00002C;
     user-select: none;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col {
+    flex: 1 0 0%;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.h100 {
+    height: 100%;
+}
+
+.col-12 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+.bg-color-primary {
+    background-color: #3648CE;
 }

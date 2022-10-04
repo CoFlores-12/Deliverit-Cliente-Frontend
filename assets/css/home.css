@@ -1,0 +1,304 @@
+.app {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.sidebar{
+    padding: 16px;
+    color: white;
+    z-index: 1;
+    position: absolute;
+    top: 0px;
+    width: 70%;
+    height: 100%;
+    transition: all 0.5s;
+}
+
+.flex-colum {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.headerSide, .footerSide {
+    flex: 1;
+}
+
+.headerSide, .footerSide, .bodySide {
+    align-items: center;
+}
+
+.bodySide {
+    flex: 2;
+}
+
+.btn {
+    width: 80%;
+    border-radius: 20px;
+    border: none;
+    text-decoration: none;
+    padding: 0px 16px;
+    display: inline-block;
+    text-align: left;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    height: 36px;
+    line-height: 36px;
+    cursor: pointer;
+    background-color: #3648CE;
+    color: #E7EFF8;
+    margin-bottom: 10px;
+    transition: all 0.5s ease;
+}
+
+.btn:hover {
+    background-color: #303faf;
+}
+
+.headerSide img {
+    width: 30%;
+}
+
+.footerSide {
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.btnsideActive {
+    background-color: #E7EFF8;
+    color: #3648CE;
+}
+
+#username {
+    font-size: 1.5rem;
+}
+
+.backMenu {
+    display: none;
+    border-radius: 20px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 5 !important;
+}
+
+.container-app {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #E7EFF8;
+    transition: all 0.5s;
+    position: relative;
+    overflow: scroll !important;
+}
+
+.navTop {
+    padding: 16px;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 6px 6px 12px #CBD4E3,
+             -6px -6px 12px #fff;
+}
+
+.navTop img {
+    border-radius: 50%;
+}
+
+#categorias {
+    padding: 50px;
+}
+
+.categoria-elemet {
+    border-radius: 15px;
+    padding: 8px;
+    overflow: visible;
+    margin-bottom: 40px;
+    background-color: #dfe5ec;
+    outline: 1px solid white;
+    transform: skew(-8deg, 0deg);
+    box-shadow: 6px 6px 12px #CBD4E3,
+             -6px -6px 12px rgba(255, 255, 255, 0.801);
+}
+
+.loading {
+    overflow: hidden;
+    height: 100px;
+}
+
+
+.elLoad{
+    position: absolute;
+    top: -20%;
+    left: -30%;
+    width: 10px;
+    height: 150%;
+    background-color: rgb(255, 255, 255);
+    transform: rotate(-30deg);
+    outline: 1px solid rgb(255, 255, 255);
+    filter: blur(10px);
+    animation-name: loader;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    
+}
+
+.contenido {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    padding-left: 30px;
+    padding-top: 20px;
+    word-wrap: break-word;
+}
+
+.contenido img {
+    height: 60%;
+    position: absolute;
+    left: 16px;
+    top: -20px;
+    filter: drop-shadow(30px 10px 30px rgba(92, 92, 92, 0.329));
+    animation-delay: 0.3s;
+    transform: skew(8deg, 0deg);
+}
+
+.contenido h3 {
+    font-weight: bold;
+    color: white;
+}
+
+@keyframes loader {
+    0% {
+        left: -30%;
+    }
+    100% {
+        left: 130%;
+    }
+}
+
+
+.animate__animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  @keyframes bounceIn {
+    from,
+    20%,
+    40%,
+    60%,
+    80%,
+    to {
+      -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+  
+    0% {
+      opacity: 0;
+      -webkit-transform: scale3d(0.3, 0.3, 0.3);
+      transform: scale3d(0.3, 0.3, 0.3);
+      transform: skew(-8deg, 0deg) skew(-8deg, 0deg);
+    }
+  
+    20% {
+      -webkit-transform: scale3d(1.1, 1.1, 1.1);
+      transform: scale3d(1.1, 1.1, 1.1) skew(-8deg, 0deg);
+      
+    }
+  
+    40% {
+      -webkit-transform: scale3d(0.9, 0.9, 0.9);
+      transform: scale3d(0.9, 0.9, 0.9) skew(-8deg, 0deg);
+    }
+  
+    60% {
+      opacity: 1;
+      -webkit-transform: scale3d(1.03, 1.03, 1.03);
+      transform: scale3d(1.03, 1.03, 1.03) skew(-8deg, 0deg);
+    }
+  
+    80% {
+      -webkit-transform: scale3d(0.97, 0.97, 0.97);
+      transform: scale3d(0.97, 0.97, 0.97) skew(-8deg, 0deg);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1) skew(-8deg, 0deg);
+      
+    }
+  }
+
+
+.animate__bounceIn {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-name: bounceIn;
+    animation-name: bounceIn;
+}
+
+  @keyframes backInDown {
+    0% {
+      -webkit-transform: translateY(-1200px) scale(0.7);
+      transform: translateY(-1200px) scale(0.7) skew(8deg, 0deg);
+      opacity: 0.7;
+    }
+  
+    80% {
+      -webkit-transform: translateY(0px) scale(0.7);
+      transform: translateY(0px) scale(0.7) skew(8deg, 0deg);
+      opacity: 0.7;
+    }
+  
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1) skew(8deg, 0deg);
+      opacity: 1;
+    }
+  }
+  .animate__backInDown {
+    -webkit-animation-name: backInDown;
+    animation-name: backInDown;
+  }
+
+.cater {
+  z-index: 1;
+}
+
+.catselec {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -10;
+  justify-content: center;
+  display: none;
+  align-items: center;
+  background-color: #dfe5ec;
+  animation-duration: 0.5s !important;
+}
+
+.cater {
+  background-color: #dfe5ec;
+}
+
+.backCatSel {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
