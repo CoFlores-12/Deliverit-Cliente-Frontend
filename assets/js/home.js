@@ -47,7 +47,7 @@ var elements = [
   $('#categorias').html(' ');
 
   for (let i = 0; i < elements.length; i++) {
-      $('#categorias').append('<div onClick="catSelect(this);" data-CatID="'+i+'" style="background-color: '+elements[i]['color']+';"'+'class="animate__animated animate__bounceIn categoria-elemet">'+
+      $('#categorias').append('<div onClick="goTo(this);" data-CatID="'+i+'" style="background-color: '+elements[i]['color']+';"'+'class="animate__animated animate__bounceIn categoria-elemet">'+
       '<div class="contenido" >'+
           '<h3>'+elements[i]['name']+'</h3>'+
           '<img class="animate__animated animate__backInDown" src="'+elements[i]['icon']+'" alt="">'+
@@ -101,38 +101,7 @@ function logout() {
     window.location.href = 'login.html';
 }
 
-const animateCSS = (element, animation, prefix = 'animate__') =>
-  // We create a Promise and return it
-  new Promise((resolve, reject) => {
-    const animationName = `${prefix}${animation}`;
-    const node = document.querySelector(element);
-
-    node.classList.add(`${prefix}animated`, animationName);
-
-    // When the animation ends, we clean the classes and resolve the Promise
-    function handleAnimationEnd(event) {
-      event.stopPropagation();
-      node.classList.remove(`${prefix}animated`, animationName);
-      resolve('Animation ended');
-    }
-
-    node.addEventListener('animationend', handleAnimationEnd, {once: true});
-  });
-
-
-function closeCatSel() {
-    animateCSS('.catselec', 'fadeOutDown').then((message) => {
-        // Do something after the animation
-        $('.catselec').css('display', 'none');
-        $('.catselec').css('z-index', '-10');
-    });
-}
-
-function catSelect(categoria) {
-    var index = $(categoria).attr('data-CatID');
-    $('#nameCatSel').html(elements[index]['name']);
-    $('.catselec').css('display', 'flex');
-    $('.catselec').css('z-index', '10');
-    animateCSS('.catselec', 'fadeInUp');
+function goTo(category) {
+    window.location.href = 'homeCategories.html?category='+$(category).attr('data-CatID');
 }
 

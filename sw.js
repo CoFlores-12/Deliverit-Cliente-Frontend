@@ -6,7 +6,9 @@ const assets = [
     "/assets/img/g.png",
     "/assets/js/cash.min.js",
     "/manifest.json",
-
+    "/assets/img/avatar.jpg",
+    "/assets/fontAwesome/js/all.js",
+    
     "/home.html",
     "/assets/css/home.css",
     "/assets/js/home.js",
