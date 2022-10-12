@@ -102,6 +102,6 @@ function logout() {
 }
 
 function goTo(category) {
-    window.location.href = 'homeCategories.html?category='+$(category).attr('data-CatID');
+    window.location.href = 'homeCategories.html?app=deliverit&category='+$(category).attr('data-CatID');
 }
 
