@@ -47,7 +47,7 @@ var elements = [
   $('#categorias').html(' ');
 
   for (let i = 0; i < elements.length; i++) {
-      $('#categorias').append('<div onClick="goTo(this);" data-CatID="'+i+'" style="background-color: '+elements[i]['color']+';"'+'class="animate__animated animate__bounceIn categoria-elemet">'+
+      $('#categorias').append('<div onClick="goTo(this);" data-CatID="'+i+'" style="background-color: '+elements[i]['color']+';"'+' class="animate__animated animate__bounceIn touchable categoria-elemet">'+
       '<div class="contenido" >'+
           '<h3>'+elements[i]['name']+'</h3>'+
           '<img class="animate__animated animate__backInDown" src="'+elements[i]['icon']+'" alt="">'+

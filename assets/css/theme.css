@@ -57,11 +57,11 @@ html, body {
 }
 
 .touchable {
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out !important;
 }
 
 .touchable:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) !important;
     z-index: 9999;
     filter: brightness(0.96);
 }

@@ -137,6 +137,28 @@
 }
 
 
+.cart {
+  position: relative;
+}
+
+.cart::before {
+  content: '2';
+  color: white;
+  font-size: 0.6em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 14px;
+  width: 14px;
+  background-color: rgb(255, 52, 52);
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  border-radius: 50%;
+}
+
 .elLoad{
     position: absolute;
     top: -20%;
@@ -276,6 +298,7 @@
 
 .cater {
   z-index: 1;
+  height: 100%;
 }
 
 .catselec {
@@ -290,10 +313,6 @@
   align-items: center;
   background-color: #dfe5ec;
   animation-duration: 0.5s !important;
-}
-
-.cater {
-  background-color: #dfe5ec;
 }
 
 .backCatSel {

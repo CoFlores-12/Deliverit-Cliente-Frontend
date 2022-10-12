@@ -68,9 +68,9 @@ const dataShop = [
         const banner = (shop['banner'] == '') ? '/assets/img/banners/food.webp' : shop['banner'];
         const logo = (shop['logo'] == '') ? '/assets//img/iconos/comida-rapida.png' : shop['logo'];
         let elementShop= '<div class="nimate__animated animate__bounceIn element touchable">'+
-                '<img class="bannerShop" src="'+banner+'" width="100%" alt="">'+
+                '<img class="bannerShop" src="'+banner+'" width="100%" loading="lazy">'+
                 '<div class="dataShop row center-y">'+
-                    '<img class="logoShop" src="'+logo+'" alt="">'+
+                    '<img class="logoShop" src="'+logo+'" loading="lazy">'+
                     '<div class="shopinfo col">'+
                         '<strong>'+shop['name']+'</strong><br>'+
                         '<span class="desc">'+shop['description']+'</span>'+
