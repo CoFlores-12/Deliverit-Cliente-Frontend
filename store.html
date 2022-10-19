@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <title>Deliverit | store</title>
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json"/>
+    <link rel="apple-touch-icon" href="/assets/logo.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#E7EFF8" />
+    <meta name="theme-color" content="#E7EFF8"/>
+    <link rel="shortcut icon" href="/assets/logo.png"" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Lexend&family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <script src="/assets/fontAwesome/js/all.js"></script>
+    <link rel="stylesheet" href="/assets//css/store.css">
+</head>
+<body>
+
+    <div id="modal-product">
+        <nav class="row center-y">
+            <i onclick="closeModalProduct();" class="fa-solid fa-arrow-left btnIcon"> </i>
+            <div class="cart"><i class="fa-solid fa-cart-shopping cartIcon btnIcon"></i></div>
+        </nav>
+        <img id="img-modal" height="80%" src="" alt="">
+    </div>
+    <div class="modalProduct col">
+        <nav class="row center-y">
+            <i onclick="closeModalProduct();" class="fa-solid fa-arrow-left btnIcon"> </i>
+            <div class="cart"><i class="fa-solid fa-cart-shopping cartIcon btnIcon"></i></div>
+        </nav>
+        <div class="imagePos row center-xy">
+            <img height="80%" src="/assets/img/tmp/image_2022-10-12_221845364-removebg-preview.png" alt="">
+        </div>
+        <div class="bodyModal">
+            <div class="detailsProduct">
+                <strong><div class="name">spicy crispy</div></strong>
+                <div class="rowTwo row">
+                    <div class="price">L.170<span>.00</span></div>
+                    <div class="cantidad row center-y">
+                        <div class="btncart minus"><i class="fa-solid fa-minus"></i></div>
+                        <div class="numberOrdens">1</div>
+                        <div class="btncart plus"><i class="fa-solid fa-plus"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="optionsProducts">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quidem optio quis aliquid quo ea eius asperiores ut fuga omnis, enim minima in, ipsum ratione. Optio consequuntur aliquid distinctio accusantium!
+                Accusamus eveniet tempore optio facere nobis nulla facilis voluptatibus. Sed eaque iusto pariatur ipsum laudantium. Nam corporis sint architecto, vitae officiis quaerat. Necessitatibus quasi rerum, est provident beatae magni nobis.
+                Earum velit nostrum eos beatae numquam voluptatem qui temporibus porro incidunt aliquam, quidem facilis aperiam vel repellat, omnis, asperiores voluptatibus enim labore consequatur laboriosam! Sed dolore veritatis adipisci! Quas, reiciendis.
+                Vel iste vitae excepturi pariatur, dignissimos, culpa eaque odit, autem illum unde optio vero hic consequuntur. Nobis quibusdam voluptatum corporis, exercitationem accusamus eius provident in eligendi id asperiores totam vero.
+                Sint earum suscipit alias minus sapiente voluptatum eveniet ad numquam distinctio, quibusdam cum magnam nobis fugit temporibus consectetur illo ea est deleniti consequatur sequi quis. Et fugit ex suscipit alias.
+                Tenetur enim sapiente perferendis ex autem eaque voluptas soluta delectus illo magni minima inventore id nulla dolores, nisi voluptates fugit quod corporis laudantium pariatur. Rerum ipsam cupiditate harum libero vero!
+                Consequuntur ab modi aut illum. Enim cumque exercitationem, voluptate facere magni esse quasi, minima in omnis explicabo facilis vel perferendis, harum unde eos quis quae natus corporis non illum! Reprehenderit.
+                Ducimus blanditiis quisquam dolor, earum eveniet, modi dolores pariatur sunt impedit fugiat consequuntur eius tempora, fugit explicabo reprehenderit. In fugiat autem deserunt repellat, eaque nostrum laborum illum quo voluptates adipisci.
+                Eligendi ducimus aperiam molestiae at, sapiente consequuntur voluptatibus sint nulla unde odio esse, obcaecati optio voluptas inventore id, nam quasi corrupti qui cumque doloremque? Quis id sequi velit nemo magni?
+                Esse, recusandae accusantium sapiente maxime alias cupiditate ad. Possimus animi voluptatibus ab odio assumenda ea, nam totam porro illo, harum atque qui eligendi aperiam tempora eum consectetur reprehenderit. Dolorum, nisi?
+            </div>
+            <div class="ordenAdd row center-y">
+                
+                <div class="touchable btnCartAdd">Add to cart <i class="fa-solid fa-cart-shopping"></i></div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="header">
+            <nav class="row center-y">
+                <i class="fa-solid fa-arrow-left btnIcon" onclick="history.back()"></i>
+                <h3 id="categoryNameNav"></h3>
+                <div class="cart"><i class="fa-solid fa-cart-shopping cartIcon btnIcon"></i></div>
+            </nav>
+            <div class="infoStore">
+                <img src="https://previews.123rf.com/images/rouslan/rouslan1902/rouslan190200016/131040531-moscú-rusia-12-de-febrero-de-2019-menú-de-hamburguesas-big-mac-en-mcdonald.jpg?fj=1" alt="">
+                <div class="dataStore row center-y">
+                    <img src="https://javiereldegilmarquez.files.wordpress.com/2012/06/mcdonald-y-el-sr-pc3a9rez.jpg" alt="">
+                    <strong class="nameStore">McDonalds</strong>
+                </div>
+            </div>
+        </div>
+        <main>
+            <div class="search row center-xy">
+                <div class="group row center-y">
+                    <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><g><path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path></g></svg>
+                    <input placeholder="Search" type="search" class="input">
+                  </div>
+            </div>
+
+            <div class="productosList">
+    <div onclick="openModalProduct(this);" class="product touchable col center-x animate__animated animate__bounceIn">
+                    <img src="/assets/img/tmp/image_2022-10-12_221845364-removebg-preview.png" alt="">
+                    <div class="data">
+                        <strong><div class="name">spicy crispy</div></strong>
+                        <div class="price">L.170<span>.00</span></div>
+                    </div>
+                </div>
+                <div onclick="openModalProduct(this);" class="product touchable animate__animated animate__bounceIn">
+                    <img src="/assets/img/tmp/image_2022-10-12_221908157-removebg-preview.png" alt="">
+                    <div class="data">
+                        <strong><div class="name">Big Mac chees chicken pro max contador de pruebas para generar espacios dinamicos</div></strong>
+                        <div class="price">L.172<span>.00</span></div>
+                    </div>
+                </div>
+                <div onclick="openModalProduct(this);" class="product touchable animate__animated animate__bounceIn">
+                    <img src="/assets/img/tmp/image_2022-10-12_221908157-removebg-preview.png" alt="">
+                    <div class="data">
+                        <strong><div class="name">Big Mac chees chicken pro max</div></strong>
+                        <div class="price">L.172<span>.00</span></div>
+                    </div>
+                </div>
+                <div onclick="openModalProduct(this);" class="product touchable col center-x animate__animated animate__bounceIn">
+                    <img src="/assets/img/tmp/image_2022-10-12_221845364-removebg-preview.png" alt="">
+                    <div class="data">
+                        <strong><div class="name">spicy crispy</div></strong>
+                        <div class="price">L.170<span>.00</span></div>
+                    </div>
+                </div>
+                <div onclick="openModalProduct(this);" class="product touchable col center-x animate__animated animate__bounceIn">
+                    <img src="/assets/img/tmp/image_2022-10-12_221845364-removebg-preview.png" alt="">
+                    <div class="data">
+                        <strong><div class="name">spicy crispy</div></strong>
+                        <div class="price">L.170<span>.00</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+    <script src="/assets/js/cash.min.js"></script>
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/store.js"></script>
+</body>
+</html>

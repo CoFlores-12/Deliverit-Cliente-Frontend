@@ -1,9 +1,35 @@
+var elements = [
+    {
+        name:'Restaurants',
+        color:'#ff9e00',
+        icon:'/assets/img/iconos/comida-rapida.png'
+    },
+    {
+        name:'Supermarket',
+        color:'#691b9a',
+        icon:'/assets/img/iconos/tienda.png'
+    },
+    {
+        name:'Drinks',
+        color:'#1b9a8f',
+        icon:'/assets/img/iconos/coctel.png'
+    },
+    {
+        name:'Health',
+        color:'#558b2f',
+        icon:'/assets/img/iconos/salud.png'
+    },
+    {
+        name:'Tech',
+        color:'#c50b0b',
+        icon:'/assets/img/iconos/gadgets.png'
+    }
+];
 
 const category = new URLSearchParams(document.URL).get('category');
-console.log(category);
 document.title = 'Deliverit | ' + category;
 
-$('#categoryNameNav').html(category);
+$('#categoryNameNav').html(elements[category]['name']);
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -67,7 +93,7 @@ const dataShop = [
     dataShop.forEach(shop => {
         const banner = (shop['banner'] == '') ? '/assets/img/banners/food.webp' : shop['banner'];
         const logo = (shop['logo'] == '') ? '/assets//img/iconos/comida-rapida.png' : shop['logo'];
-        let elementShop= '<div class="nimate__animated animate__bounceIn element touchable">'+
+        let elementShop= '<div onclick="goToStore(this)" class="animate__animated animate__bounceIn element touchable">'+
                 '<img class="bannerShop" src="'+banner+'" width="100%" loading="lazy">'+
                 '<div class="dataShop row center-y">'+
                     '<img class="logoShop" src="'+logo+'" loading="lazy">'+
@@ -82,3 +108,6 @@ const dataShop = [
 })
 ();
 
+function goToStore(store) {
+    window.location.href = 'store.html'
+}

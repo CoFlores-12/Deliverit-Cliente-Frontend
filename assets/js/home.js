@@ -13,27 +13,27 @@ if ("serviceWorker" in navigator) {
 //datos desde API
 var elements = [
     {
-        name:'restaurantes',
+        name:'Restaurants',
         color:'#ff9e00',
         icon:'/assets/img/iconos/comida-rapida.png'
     },
     {
-        name:'Supermercado',
+        name:'Supermarket',
         color:'#691b9a',
         icon:'/assets/img/iconos/tienda.png'
     },
     {
-        name:'Bebidas',
+        name:'Drinks',
         color:'#1b9a8f',
         icon:'/assets/img/iconos/coctel.png'
     },
     {
-        name:'Salud',
+        name:'Health',
         color:'#558b2f',
         icon:'/assets/img/iconos/salud.png'
     },
     {
-        name:'Tecnologia',
+        name:'Tech',
         color:'#c50b0b',
         icon:'/assets/img/iconos/gadgets.png'
     }
@@ -50,7 +50,7 @@ var elements = [
       $('#categorias').append('<div onClick="goTo(this);" data-CatID="'+i+'" style="background-color: '+elements[i]['color']+';"'+' class="animate__animated animate__bounceIn touchable categoria-elemet">'+
       '<div class="contenido" >'+
           '<h3>'+elements[i]['name']+'</h3>'+
-          '<img class="animate__animated animate__backInDown" src="'+elements[i]['icon']+'" alt="">'+
+          '<img class="animate__animated animate__bounceIn" src="'+elements[i]['icon']+'" alt="">'+
       '</div>'+
 '</div>');
   }
