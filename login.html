@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="assets/css/theme.css">
     <link rel="stylesheet" href="assets/css/login.css">
 
-    <meta name="google-signin-client_id" content="Y156286288006-gh087gnfo5j1oc9e7g88oui46986r4pn.apps.googleusercontent.com">
 </head>
 <body>
     <div class="viewer">
@@ -51,6 +50,7 @@
                         <div class="GButton" id="customBtn">
                             <img width="100%" src="/assets/img/g.png" alt="">
                         </div>
+                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
                     </div>
                 </div>
 
@@ -75,15 +75,13 @@
 
     <script src="/assets/js/cash.min.js"></script>
     <script src="/assets/js/login.js"></script>
-    
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="https://apis.google.com/js/api:client.js"></script>
+
     <script>
 
         //facebook login API
         window.fbAsyncInit = function() {
             FB.init({
-                appId   : '476594931046059',
+                appId   : '1198294224364209',
                 oauth   : true,
                 status  : true, // check login status
                 cookie  : true, // enable cookies to allow the server to access the session
@@ -103,7 +101,9 @@
 
                     FB.api('/me', function(response) {
                         user_email = response.email; //get user email
-                        console.log(response);           
+                        console.log(response['name']);
+                        document.cookie = 'username='+response['name']+'; expire=31536000;';
+                        window.location.href = 'home.html';   
                     });
 
                 } else {
@@ -122,23 +122,20 @@
             document.getElementById('fb-root').appendChild(e);
         }());
 
+        /*
         //Google API
         var googleUser = {};
   var startApp = function() {
     gapi.load('auth2', function(){
-      // Retrieve the singleton for the GoogleAuth library and set up the client.
       auth2 = gapi.auth2.init({
-        client_id: 'Y156286288006-gh087gnfo5j1oc9e7g88oui46986r4pn.apps.googleusercontent.com',
+        client_id: '156286288006-gomnklivjam4jd98rhfo4ci1p3djlpm0.apps.googleusercontent.com',
         cookiepolicy: 'single_host_origin',
-        // Request scopes in addition to 'profile' and 'email'
-        //scope: 'additional_scope'
       });
       attachSignin(document.getElementById('customBtn'));
     });
   };
 
   function attachSignin(element) {
-    console.log(element.id);
     auth2.attachClickHandler(element, {},
         function(googleUser) {
           console.log(googleUser.getBasicProfile());
@@ -148,6 +145,7 @@
   }
 
   startApp();
+*/
     </script>
 
           
