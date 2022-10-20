@@ -50,7 +50,6 @@
     font-size: 14px;
     height: 36px;
     line-height: 36px;
-    cursor: pointer;
     background-color: #3648CE;
     color: #E7EFF8;
     margin-bottom: 10px;
@@ -137,6 +136,28 @@
     height: 100px;
 }
 
+
+.cart {
+  position: relative;
+}
+
+.cart::before {
+  content: '2';
+  color: white;
+  font-size: 0.6em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 14px;
+  width: 14px;
+  background-color: rgb(255, 52, 52);
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  border-radius: 50%;
+}
 
 .elLoad{
     position: absolute;
@@ -277,6 +298,7 @@
 
 .cater {
   z-index: 1;
+  height: 100%;
 }
 
 .catselec {
@@ -291,10 +313,6 @@
   align-items: center;
   background-color: #dfe5ec;
   animation-duration: 0.5s !important;
-}
-
-.cater {
-  background-color: #dfe5ec;
 }
 
 .backCatSel {

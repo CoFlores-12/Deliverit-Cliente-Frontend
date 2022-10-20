@@ -1,0 +1,181 @@
+nav {
+    justify-content: space-between;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+main {
+    padding-top: 32px;
+    padding-left: 8px;
+    padding-right: 8px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: space-around;
+    justify-items: center;
+    row-gap: 20px;
+}
+
+.element {
+    overflow: hidden;
+    width: 90%;
+    position: relative;
+    height: 30vw;
+    background-color: rgb(250, 250, 250);
+    border-radius: 10px;
+    box-shadow: 6px 6px 12px #CBD4E3;
+}
+
+
+
+.dataShop {
+    height: 45%;
+    width: 100%;
+    max-width: 100%;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.bannerShop {
+    border-radius: inherit;
+}
+
+.logoShop {
+    height: 50%;
+    margin-left: 8px;
+    margin-right: 8px;
+    border-radius: 2px;
+}
+
+.shopinfo {
+    font-size: 0.7em;
+    width: 70%;
+}
+
+.desc {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: "----";
+}
+
+.loading {
+    overflow: hidden !important;
+    position: relative;
+}
+
+
+.elLoad{
+    position: absolute;
+    top: -20%;
+    left: -30%;
+    width: 10px;
+    height: 150%;
+    background-color: rgb(235, 235, 235);
+    transform: rotate(-30deg);
+    outline: 1px solid rgb(241, 241, 241);
+    filter: blur(10px);
+    animation-name: loader;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    
+}
+
+.cart {
+    position: relative;
+}
+
+.cart::before {
+    content: '2';
+    color: white;
+    font-size: 0.6em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 14px;
+    width: 14px;
+    background-color: rgb(255, 52, 52);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    border-radius: 50%;
+}
+
+@keyframes loader {
+    0% {
+        left: -30%;
+    }
+    100% {
+        left: 130%;
+    }
+}
+
+
+
+.animate__animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  @keyframes bounceIn {
+    from,
+    20%,
+    40%,
+    60%,
+    80%,
+    to {
+      -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+  
+    0% {
+      opacity: 0;
+      -webkit-transform: scale3d(0.3, 0.3, 0.3);
+      transform: scale3d(0.3, 0.3, 0.3);
+      transform: skew(-8deg, 0deg) ;
+    }
+  
+    20% {
+      -webkit-transform: scale3d(1.1, 1.1, 1.1);
+      transform: scale3d(1.1, 1.1, 1.1) ;
+      
+    }
+  
+    40% {
+      -webkit-transform: scale3d(0.9, 0.9, 0.9);
+      transform: scale3d(0.9, 0.9, 0.9) ;
+    }
+  
+    60% {
+      opacity: 1;
+      -webkit-transform: scale3d(1.03, 1.03, 1.03);
+      transform: scale3d(1.03, 1.03, 1.03) ;
+    }
+  
+    80% {
+      -webkit-transform: scale3d(0.97, 0.97, 0.97);
+      transform: scale3d(0.97, 0.97, 0.97) ;
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1) ;
+      
+    }
+  }
+
+
+.animate__bounceIn {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-name: bounceIn;
+    animation-name: bounceIn;
+}
+

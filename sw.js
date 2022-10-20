@@ -21,7 +21,12 @@ const assets = [
 
     "/login.html",
     '/assets/css/login.css',
-    "/assets/js/login.js"
+    "/assets/js/login.js",
+
+    "/homeCategories.html",
+    "/assets/css/homeCategories.css",
+    "/assets/js/homeCategories.js",
+    "/assets/img/banners/food.webp"
 ];
 
 self.addEventListener("install", installEvent => {

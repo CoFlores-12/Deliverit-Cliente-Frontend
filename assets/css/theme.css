@@ -33,3 +33,35 @@ html, body {
 .bg-color-primary {
     background-color: #3648CE;
 }
+
+.center-xy {
+    align-items: center;
+    justify-content: center;
+}
+
+.center-x {
+    justify-content: center;
+}
+
+.center-y {
+    align-items: center;
+}
+
+.btnIcon {
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.btnIcon:hover {
+    background-color: #02020513;
+}
+
+.touchable {
+    transition: transform 0.2s ease-in-out !important;
+}
+
+.touchable:hover {
+    transform: scale(1.1) !important;
+    z-index: 9999;
+    filter: brightness(0.96);
+}
