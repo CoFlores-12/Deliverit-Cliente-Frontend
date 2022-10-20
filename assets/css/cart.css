@@ -1,0 +1,66 @@
+nav {
+    justify-content: space-between;
+    padding: 8px 16px;
+}
+
+
+.product {
+    width: calc(100% - 32px);
+    margin: 8px 16px;
+    background-color: white;
+    border-radius: 16px;
+    height: 100px;
+}
+
+.imgProduct {
+    width: 30%;
+}
+
+.imgProduct > img {
+    width: auto;
+    max-height: 60%;
+    max-width: 80%;
+}
+.infoProduct{
+    width: 70%;
+}
+
+.nameProduct {
+    font-weight: bold;
+    color: black;
+}
+
+.priceCant {
+    width: 90%;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.cant {
+    font-size: 0.8rem;
+}
+.numberOrdens {
+    margin: 0px 8px;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: calc(100% - 32px);
+    background-color: white;
+    padding: 16px 16px;
+}
+
+.servicefee {
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.btnCheckout {
+    background-color: #3648CE;
+    color: white;
+    font-weight: bold;
+    padding: 8px 32px;
+    border-radius: 20px;
+}

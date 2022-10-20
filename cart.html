@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <title>Deliverit | Cart</title>
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json"/>
+    <link rel="apple-touch-icon" href="/assets/logo.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#E7EFF8" />
+    <meta name="theme-color" content="#E7EFF8"/>
+    <link rel="shortcut icon" href="/assets/logo.png"" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Lexend&family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <script src="/assets/fontAwesome/js/all.js"></script>
+    <link rel="stylesheet" href="/assets/css/cart.css">
+</head>
+<body>
+    <nav class="row center-y">
+        <i class="fa-solid fa-arrow-left btnIcon" onclick="history.back()"></i>
+        <i class="fa-regular fa-trash-can btnIcon"></i>
+    </nav>
+    <main>
+        <h2 style="padding-left: 16px;">My Order</h2>
+        <div id="listProducts">
+            <div class="product row center-y">
+                <div class="imgProduct row center-xy">
+                    <img src="/assets/img/tmp/image_2022-10-12_221845364-removebg-preview.png" alt="">
+
+                </div>
+                    <div class="col infoProduct">
+                        <div class="nameProduct">Burger</div>
+                        <div class="row priceCant">
+                            <div class="price">$12.99</div>
+                            <div class="cant row">
+                                <div class="btncart minus"><i class="fa-solid fa-minus"></i></div>
+                                <div class="numberOrdens">1</div>
+                                <div class="btncart plus"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="product row center-y">
+                <div class="imgProduct row center-xy">
+                    <img src="https://www.pngall.com/wp-content/uploads/4/Pepperoni-Dominos-Pizza-PNG-Picture.png" alt="">
+                </div>
+                    <div class="col infoProduct">
+                        <div class="nameProduct">Pizza</div>
+                        <div class="row priceCant">
+                            <div class="price">$15.99</div>
+                            <div class="cant row">
+                                <div class="btncart minus"><i class="fa-solid fa-minus"></i></div>
+                                <div class="numberOrdens">1</div>
+                                <div class="btncart plus"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="product row center-y">
+                <div class="imgProduct row center-xy">
+                    <img src="https://www.freepnglogos.com/uploads/fried-chicken-png/crispy-fried-chicken-png-0.png" alt="">
+                    
+                </div>
+                    <div class="col infoProduct">
+                        <div class="nameProduct">chicken</div>
+                        <div class="row priceCant center-y">
+                            <div class="price">$9.99</div>
+                            <div class="cant row">
+                                <div class="btncart minus"><i class="fa-solid fa-minus"></i></div>
+                                <div class="numberOrdens">1</div>
+                                <div class="btncart plus"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+    <div id="footer" class="col">
+        <div class="row servicefee" style="padding-bottom: 16px;">
+            <div>delivery Services:</div>
+            <div id="services"><strong>$0.00</strong></div>
+        </div>
+        <div class="row center-y">
+            <div class="col">
+                <div style="font-size: 0.8rem">Total:</div>
+                <strong><span id="priceTotal">$38.97</span></strong>
+            </div>
+            <div class="btnCheckout">
+                <i style="font-size: 0.8rem; margin-right:8px" class="fa-solid fa-cart-shopping"></i>
+                checkout
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/js/cash.min.js"></script>
+    <script src="/assets/js/jquery.js"></script>
+</body>
+</html>
