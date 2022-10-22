@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
     <title>Deliverit | Cart</title>
-
+    <link rel="manifest" href="manifest.json"/>
     <link rel="apple-touch-icon" href="/assets/logo.png" />
     <meta name="apple-mobile-web-app-status-bar" content="#E7EFF8" />
     <meta name="theme-color" content="#E7EFF8"/>
@@ -17,8 +17,35 @@
     <script src="/assets/fontAwesome/js/all.js"></script>
     <link rel="stylesheet" href="/assets/css/cart.css">
     <link rel="stylesheet" href="/assets/css/animate.min.css">
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+    integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+    integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+    crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+<script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+
 </head>
 <body>
+    <div id="modalAddress">
+        <div class="card cardAddress animate__animated animate__slideInUp">
+            <div id="map"></div>
+            <div class="column inforoute">
+                <div class="row">
+                    <strong>Distance</strong>
+                    <span><span id="distanceRoute">0</span>KM</span>
+                </div>
+                <div class="row">
+                    <strong>Estimated time</strong>
+                    <span id="timeRoute"></span>
+                </div>
+            </div>
+            <button id="btnConf" class="btnPay btnConf"><i style="margin-right: 16px" class="fa-solid fa-check"></i>Confirm</button>
+        </div>
+    </div>
     <div id="modalCard" >
         <div class="card cardPay animate__animated animate__slideInUp">
             <div class="column" >
@@ -175,6 +202,10 @@
         </div>
     </main>
     <div id="footer" class="col">
+        <div class="row center-y seladdress" onclick="openModalAddress()">
+            <div id="addessName">Select Address</div>
+            <i class="fa-solid fa-chevron-right"></i>
+        </div>
         <div class="row servicefee" style="padding-bottom: 16px;">
             <div>delivery Services:</div>
             <div id="services"><strong>$0.00</strong></div>
@@ -195,5 +226,14 @@
     <script src="/assets/js/cash.min.js"></script>
     <script src="/assets/js/jquery.js"></script>
     <script src="/assets/js/cart.js"></script>
+
+    <script src="/assets/js/Control.Geocoder.js"></script>
+    <script src="/assets/js/mapConfig.js"></script>
+    <script>
+        function openModalAddress() {
+            $('#modalAddress').css('display', 'flex');
+            $('#modalAddress').css('zIndex', '99999');
+        }
+    </script>
 </body>
 </html>

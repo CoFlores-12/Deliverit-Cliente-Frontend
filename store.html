@@ -20,17 +20,17 @@
 </head>
 <body>
 
-    <div id="modal-product">
+    <div id="modal-product" class="modalProduct">
         <nav class="row center-y">
             <i onclick="closeModalProduct();" class="fa-solid fa-arrow-left btnIcon"> </i>
-            <div class="cart"><i class="fa-solid fa-cart-shopping cartIcon btnIcon"></i></div>
+            <div onclick="cart()" class="cart"><i class="fa-solid fa-cart-shopping cartIcon btnIcon"></i></div>
         </nav>
         <img id="img-modal" height="80%" src="" alt="">
     </div>
     <div class="modalProduct col">
         <nav class="row center-y">
             <i onclick="closeModalProduct();" class="fa-solid fa-arrow-left btnIcon"> </i>
-            <div class="cart"><i class="fa-solid fa-cart-shopping cartIcon btnIcon"></i></div>
+            <div onclick="cart()" class="cart"><i class="fa-solid fa-cart-shopping cartIcon btnIcon"></i></div>
         </nav>
         <div class="imagePos row center-xy">
             <img height="80%" src="/assets/img/tmp/image_2022-10-12_221845364-removebg-preview.png" alt="">
@@ -70,7 +70,7 @@
             <nav class="row center-y">
                 <i class="fa-solid fa-arrow-left btnIcon" onclick="history.back()"></i>
                 <h3 id="categoryNameNav"></h3>
-                <div class="cart"><i class="fa-solid fa-cart-shopping cartIcon btnIcon"></i></div>
+                <div  onclick="cart()" class="cart"><i class="fa-solid fa-cart-shopping cartIcon btnIcon"></i></div>
             </nav>
             <div class="infoStore">
                 <img src="https://previews.123rf.com/images/rouslan/rouslan1902/rouslan190200016/131040531-moscú-rusia-12-de-febrero-de-2019-menú-de-hamburguesas-big-mac-en-mcdonald.jpg?fj=1" alt="">
@@ -131,5 +131,10 @@
     <script src="/assets/js/cash.min.js"></script>
     <script src="/assets/js/jquery.js"></script>
     <script src="/assets/js/store.js"></script>
+    <script>
+        function cart() {
+            window.location.href = 'cart.html'
+        }
+    </script>
 </body>
 </html>
