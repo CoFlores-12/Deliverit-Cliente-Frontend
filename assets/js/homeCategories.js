@@ -27,7 +27,7 @@ var elements = [
 ];
 
 const category = new URLSearchParams(document.URL).get('category');
-document.title = 'Deliverit | ' + category;
+document.title = 'Deliverit | ' + elements[category]['name'];
 
 $('#categoryNameNav').html(elements[category]['name']);
 
@@ -90,10 +90,10 @@ const dataShop = [
 (async () => {
     await sleep(2000);
     $('#main').html('');
-    dataShop.forEach(shop => {
+    dataShop.forEach((shop, index) => {
         const banner = (shop['banner'] == '') ? '/assets/img/banners/food.webp' : shop['banner'];
         const logo = (shop['logo'] == '') ? '/assets//img/iconos/comida-rapida.png' : shop['logo'];
-        let elementShop= '<div onclick="goToStore(this)" class="animate__animated animate__bounceIn element touchable">'+
+        let elementShop= '<div onclick="goToStore('+index+')" class="animate__animated animate__bounceIn element touchable">'+
                 '<img class="bannerShop" src="'+banner+'" width="100%" loading="lazy">'+
                 '<div class="dataShop row center-y">'+
                     '<img class="logoShop" src="'+logo+'" loading="lazy">'+
@@ -109,5 +109,5 @@ const dataShop = [
 ();
 
 function goToStore(store) {
-    window.location.href = 'store.html'
+    window.location.href = 'store.html?app=deliverit&store='+store
 }
