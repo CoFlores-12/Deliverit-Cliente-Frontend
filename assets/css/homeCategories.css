@@ -87,24 +87,6 @@ main {
     position: relative;
 }
 
-.cart::before {
-    content: '2';
-    color: white;
-    font-size: 0.6em;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 14px;
-    width: 14px;
-    background-color: rgb(255, 52, 52);
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 10;
-    border-radius: 50%;
-}
-
 @keyframes loader {
     0% {
         left: -30%;

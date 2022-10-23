@@ -16,56 +16,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Jua&family=Lexend&family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/theme.css">
     <script src="/assets/fontAwesome/js/all.js"></script>
-    <link rel="stylesheet" href="/assets//css/store.css">
+    <link rel="stylesheet" href="/assets/css/store.css">
 </head>
 <body>
-
-    <div id="modal-product">
-        <nav class="row center-y">
-            <i onclick="closeModalProduct();" class="fa-solid fa-arrow-left btnIcon"> </i>
-            <div class="cart"><i class="fa-solid fa-cart-shopping cartIcon btnIcon"></i></div>
-        </nav>
-        <img id="img-modal" height="80%" src="" alt="">
-    </div>
-    <div class="modalProduct col">
-        <nav class="row center-y">
-            <i onclick="closeModalProduct();" class="fa-solid fa-arrow-left btnIcon"> </i>
-            <div class="cart"><i class="fa-solid fa-cart-shopping cartIcon btnIcon"></i></div>
-        </nav>
-        <div class="imagePos row center-xy">
-            <img height="80%" src="/assets/img/tmp/image_2022-10-12_221845364-removebg-preview.png" alt="">
-        </div>
-        <div class="bodyModal">
-            <div class="detailsProduct">
-                <strong><div class="name">spicy crispy</div></strong>
-                <div class="rowTwo row">
-                    <div class="price">L.170<span>.00</span></div>
-                    <div class="cantidad row center-y">
-                        <div class="btncart minus"><i class="fa-solid fa-minus"></i></div>
-                        <div class="numberOrdens">1</div>
-                        <div class="btncart plus"><i class="fa-solid fa-plus"></i></div>
+        <div id="modalPr">
+            <div class="containePr">
+                <nav id="navPr" class="row center-y">
+                    <i class="fa-solid fa-arrow-left btnIcon" onclick="closeModalProduct()"></i>
+                    <h3 id="categoryNameNav"></h3>
+                    <div class="cart"><i class="fa-solid fa-cart-shopping cartIcon btnIcon"></i></div>
+                </nav>
+                <div class="containeImgPr">
+                    <img id="imgPr" src="/assets/img/tmp/image_2022-10-12_221845364-removebg-preview.png" alt="">
+                </div>
+                <div class="infoPr">
+                    <div class="bodyPr">
+                        <span id="namePr"></span>
+                        <div class="row row2Pr">
+                            <div id="pricePr">$</div>
+                            <div class="cantPr row center-y">
+                                <div onclick="minus()" class="IconsPr circlePr"><i class="fa-solid fa-minus"></i></div>
+                                <div class="circlePr"><span id="countPr">1</span></div>
+                                <div onclick="plus()" class="IconsPr circlePr"><i class="fa-solid fa-plus "></i></div>
+                                
+                            </div>
+                            <div class="dataPr">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. A mollitia atque possimus sit inventore accusantium dolor et corporis sed ipsum doloremque, excepturi odit architecto, ipsam velit earum. Animi, alias cum.
+                                Provident quasi ex illo aspernatur commodi impedit est dolor vel, nisi autem alias delectus error eius nulla ipsa quos labore iure! Quos aliquam molestiae excepturi temporibus! Dolore odio quod enim.
+                                Nisi pariatur amet quisquam voluptas possimus nihil dolorem culpa, officiis sunt repellat distinctio optio, doloremque voluptatum, cum fugiat facere nostrum vitae? Minus nisi, quia rerum vitae obcaecati corrupti nemo et?
+                                Hic laboriosam tempore voluptatibus, maiores nemo eveniet quam laudantium possimus eaque fugit blanditiis. Est doloremque repellendus, ex voluptatum dolorem nisi dolores voluptatem nemo ipsam, totam dignissimos. Perferendis eum consequuntur cupiditate.
+                                Ad ea nam aut necessitatibus minima ullam soluta eligendi nemo ipsa, repellendus reprehenderit, dolorum voluptatibus iusto delectus temporibus dolorem, fuga fugit recusandae ipsam nostrum quae? Quam nemo iusto quod officiis?
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. A mollitia atque possimus sit inventore accusantium dolor et corporis sed ipsum doloremque, excepturi odit architecto, ipsam velit earum. Animi, alias cum.
+                                Provident quasi ex illo aspernatur commodi impedit est dolor vel, nisi autem alias delectus error eius nulla ipsa quos labore iure! Quos aliquam molestiae excepturi temporibus! Dolore odio quod enim.
+                                Nisi pariatur amet quisquam voluptas possimus nihil dolorem culpa, officiis sunt repellat distinctio optio, doloremque voluptatum, cum fugiat facere nostrum vitae? Minus nisi, quia rerum vitae obcaecati corrupti nemo et?
+                                Hic laboriosam tempore voluptatibus, maiores nemo eveniet quam laudantium possimus eaque fugit blanditiis. Est doloremque repellendus, ex voluptatum dolorem nisi dolores voluptatem nemo ipsam, totam dignissimos. Perferendis eum consequuntur cupiditate.
+                                Ad ea nam aut necessitatibus minima ullam soluta eligendi nemo ipsa, repellendus reprehenderit, dolorum voluptatibus iusto delectus temporibus dolorem, fuga fugit recusandae ipsam nostrum quae? Quam nemo iusto quod officiis?
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="optionsProducts">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quidem optio quis aliquid quo ea eius asperiores ut fuga omnis, enim minima in, ipsum ratione. Optio consequuntur aliquid distinctio accusantium!
-                Accusamus eveniet tempore optio facere nobis nulla facilis voluptatibus. Sed eaque iusto pariatur ipsum laudantium. Nam corporis sint architecto, vitae officiis quaerat. Necessitatibus quasi rerum, est provident beatae magni nobis.
-                Earum velit nostrum eos beatae numquam voluptatem qui temporibus porro incidunt aliquam, quidem facilis aperiam vel repellat, omnis, asperiores voluptatibus enim labore consequatur laboriosam! Sed dolore veritatis adipisci! Quas, reiciendis.
-                Vel iste vitae excepturi pariatur, dignissimos, culpa eaque odit, autem illum unde optio vero hic consequuntur. Nobis quibusdam voluptatum corporis, exercitationem accusamus eius provident in eligendi id asperiores totam vero.
-                Sint earum suscipit alias minus sapiente voluptatum eveniet ad numquam distinctio, quibusdam cum magnam nobis fugit temporibus consectetur illo ea est deleniti consequatur sequi quis. Et fugit ex suscipit alias.
-                Tenetur enim sapiente perferendis ex autem eaque voluptas soluta delectus illo magni minima inventore id nulla dolores, nisi voluptates fugit quod corporis laudantium pariatur. Rerum ipsam cupiditate harum libero vero!
-                Consequuntur ab modi aut illum. Enim cumque exercitationem, voluptate facere magni esse quasi, minima in omnis explicabo facilis vel perferendis, harum unde eos quis quae natus corporis non illum! Reprehenderit.
-                Ducimus blanditiis quisquam dolor, earum eveniet, modi dolores pariatur sunt impedit fugiat consequuntur eius tempora, fugit explicabo reprehenderit. In fugiat autem deserunt repellat, eaque nostrum laborum illum quo voluptates adipisci.
-                Eligendi ducimus aperiam molestiae at, sapiente consequuntur voluptatibus sint nulla unde odio esse, obcaecati optio voluptas inventore id, nam quasi corrupti qui cumque doloremque? Quis id sequi velit nemo magni?
-                Esse, recusandae accusantium sapiente maxime alias cupiditate ad. Possimus animi voluptatibus ab odio assumenda ea, nam totam porro illo, harum atque qui eligendi aperiam tempora eum consectetur reprehenderit. Dolorum, nisi?
-            </div>
-            <div class="ordenAdd row center-y">
-                
-                <div class="touchable btnCartAdd">Add to cart <i class="fa-solid fa-cart-shopping"></i></div>
+                <div class="footerPr row center-y">
+                    <div class="fav" onclick="favorites()">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+                    <button onclick="addToCart()" class="btnCartAdd"><i style="margin-right: 16px" class="fa-solid fa-cart-shopping"></i>Add to cart</button>
+                </div>
             </div>
         </div>
-    </div>
-    <div>
         <div class="header">
             <nav class="row center-y">
                 <i class="fa-solid fa-arrow-left btnIcon" onclick="history.back()"></i>
@@ -93,35 +90,35 @@
                     <img src="/assets/img/tmp/image_2022-10-12_221845364-removebg-preview.png" alt="">
                     <div class="data">
                         <strong><div class="name">spicy crispy</div></strong>
-                        <div class="price">L.170<span>.00</span></div>
+                        <div class="price">$ <span class="priceVal">12.99</span></div>
                     </div>
                 </div>
                 <div onclick="openModalProduct(this);" class="product touchable animate__animated animate__bounceIn">
                     <img src="/assets/img/tmp/image_2022-10-12_221908157-removebg-preview.png" alt="">
                     <div class="data">
                         <strong><div class="name">Big Mac chees chicken pro max contador de pruebas para generar espacios dinamicos</div></strong>
-                        <div class="price">L.172<span>.00</span></div>
+                        <div class="price">$ <span class="priceVal">12.99</span></div>
                     </div>
                 </div>
                 <div onclick="openModalProduct(this);" class="product touchable animate__animated animate__bounceIn">
                     <img src="/assets/img/tmp/image_2022-10-12_221908157-removebg-preview.png" alt="">
                     <div class="data">
                         <strong><div class="name">Big Mac chees chicken pro max</div></strong>
-                        <div class="price">L.172<span>.00</span></div>
+                        <div class="price">$ <span class="priceVal">12.99</span></div>
                     </div>
                 </div>
                 <div onclick="openModalProduct(this);" class="product touchable col center-x animate__animated animate__bounceIn">
                     <img src="/assets/img/tmp/image_2022-10-12_221845364-removebg-preview.png" alt="">
                     <div class="data">
                         <strong><div class="name">spicy crispy</div></strong>
-                        <div class="price">L.170<span>.00</span></div>
+                        <div class="price">$ <span class="priceVal">12.99</span></div>
                     </div>
                 </div>
                 <div onclick="openModalProduct(this);" class="product touchable col center-x animate__animated animate__bounceIn">
                     <img src="/assets/img/tmp/image_2022-10-12_221845364-removebg-preview.png" alt="">
                     <div class="data">
                         <strong><div class="name">spicy crispy</div></strong>
-                        <div class="price">L.170<span>.00</span></div>
+                        <div class="price">$ <span class="priceVal">12.99</span></div>
                     </div>
                 </div>
             </div>

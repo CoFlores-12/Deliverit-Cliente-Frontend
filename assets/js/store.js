@@ -1,3 +1,11 @@
+let cartCount = 0;
+
+const store = new URLSearchParams(document.URL).get('store');
+
+(async ()=>{
+
+})();
+
 $.fn.animateTransform = function(/* [start,] end [, duration] [, callback] */){
     var start = null, end = null, duration = 400, callback = function(){};
     for(var i=0; i<arguments.length; i++){
@@ -30,43 +38,93 @@ $.fn.animateTransform = function(/* [start,] end [, duration] [, callback] */){
     }, duration);
   };
 
+let productSelect;
+
 function openModalProduct(product) {
-    $('#modal-product').css('display', 'block');
+
+  productSelect = product;
+
     const imgSelect = $(product)[0].children[0];
-    $('#img-modal').css('display', 'block');
-    $('#img-modal').css('top', $(imgSelect).offset().top);
-    $('#img-modal').css('height', $(imgSelect)[0].offsetHeight+10);
-    $('#img-modal').css('left', $(imgSelect).offset().left);
-    $('#img-modal').attr('src',$(imgSelect).attr('src'));
-    
-    
-    $('#modal-product').css('height', $(imgSelect)[0].offsetHeight-10);
-    $('#modal-product').css('width', $(imgSelect)[0].offsetWidth-10);
-    $('#modal-product').css('top', $(imgSelect).offset().top);
-    $('#modal-product').css('left', $(imgSelect).offset().left);
-    $('#modal-product').css('border-radius', '50%');
+    $('#modalPr').css('display', 'block');
+    $('#imgPr').attr('src',$(imgSelect).attr('src'));
 
+    $('#modalPr').css('top', $(imgSelect).offset().top);
+    $('#modalPr').css('left', $(imgSelect).offset().left);
+    $('#modalPr').css('height', $(imgSelect)[0].offsetHeight+9);
+    $('#modalPr').css('width', $(imgSelect)[0].offsetWidth+9);
     
+    $('#modalPr').css('border-radius', '50%');
 
-    $('#img-modal').animate({
-        top: 0,
-        left: '50%',
-        height: '30vh',
-        width: "auto"
-    }, 'slow');
-    $('#modal-product').animate({
+    $('#namePr').html($('.data>strong>.name',product).html());
+    $('#pricePr').html($('.data>.price',product).html());
+
+    $('.containeImgPr').animate({
+      height: '30%'
+    }, 'slow', function() {
+      $('.footerPr').animate({
+        bottom: '0px'
+      }, 'slow')
+    })
+
+    $('#modalPr').animate({
         top: 0,
         left: 0,
-        width: '100%',
-        height: '100vh',
-        borderRadius: '0px'
-    }, 'slow');
-    $("#img-modal").animateTransform("translate(-50%,0%)", 750, function(){
-        console.log("animation completed after 750ms");
+        borderRadius: '0px',
+        height: '100%',
+        width: "100%"
+    }, 'slow', function(){
+      $('#navPr').css('display', 'flex');
     });
+
+    
 }
 
 function closeModalProduct() {
-    $('#modal-product').css('display', 'none');
-    
+  $('#modalPr').animate({
+      top: '100vh',
+      left: 0,
+      borderRadius: '50%',
+      height: '100%',
+      width: "100%"
+  }, 'slow', function(){
+    $('#modalPr').css('display', 'none');
+    $('#navPr').css('display', 'none');
+    $('.containeImgPr').css('height', '100%');
+    $('.footerPr').css('bottom', '-57px');
+  });
+   
+}
+
+function favorites() {
+  $('.fav').html('<i class="fa-solid fa-heart"></i>')
+}
+
+async function addToCart() {
+  let cartTmp = [];
+  if (window.localStorage.getItem('cart') != undefined) {
+    cartTmp = await JSON.parse( window.localStorage.getItem('cart') );
+  }
+  console.log($('.data>.price',productSelect).html());
+  cartTmp.push({
+    img: $('img',productSelect).attr('src'),
+    name: $('.data>strong>.name',productSelect).html(),
+    store: $('.nameStore').html(),
+    price: $('.data>.price>.priceVal',productSelect).html(),
+    cant: countPr,
+})
+  window.localStorage.setItem('cart', JSON.stringify(cartTmp))
+}
+
+let countPr = 1;
+
+function minus() {
+  if (countPr>1) {
+    countPr--;
+    $('#countPr').html(countPr)
+  }
+}
+
+function plus() {
+  countPr++;
+  $('#countPr').html(countPr)
 }
