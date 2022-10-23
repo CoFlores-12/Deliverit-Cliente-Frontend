@@ -60,7 +60,7 @@
                 <navs class="navbar">
                     <div class="navTop">
                         <i onclick="sidebar();" class="fa-solid fa-bars"></i>
-                        <div class="cart"><i class="fa-solid fa-cart-shopping cartIcon btnIcon"></i></div>
+                        <div onclick="cart()" class="cart"><i class="fa-solid fa-cart-shopping cartIcon btnIcon"></i></div>
                     </div>
                 </navs>
 
@@ -107,6 +107,9 @@
     <script src="/assets/js/cash.min.js"></script>
     <script>
         $('#username').html(cookieValue);
+        function cart() {
+            window.location.href = 'cart.html'
+        }
     </script>
 </body>
 </html>

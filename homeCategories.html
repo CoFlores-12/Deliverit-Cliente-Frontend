@@ -21,7 +21,7 @@
         <nav class="row center-y">
             <i class="fa-solid fa-arrow-left btnIcon" onclick="history.back()"></i>
             <h3 id="categoryNameNav"></h3>
-            <div class="cart"><i class="fa-solid fa-cart-shopping cartIcon btnIcon"></i></div>
+            <div onclick="cart()" class="cart"><i class="fa-solid fa-cart-shopping cartIcon btnIcon"></i></div>
         </nav>
         <main id="main">
             <div class="element loading touchable">
@@ -100,5 +100,10 @@
 
     <script src="/assets/js/cash.min.js"></script>
     <script src="/assets/js/homeCategories.js"></script>
+    <script>
+        function cart() {
+            window.location.href = 'cart.html'
+        }
+    </script>
 </body>
 </html>
