@@ -198,8 +198,10 @@ window.onload = async () => {
         $('#services').html('$' + servicefee);
         dibujarProductos();
         $('#modalAddress').css('display', 'none');
+        document.querySelector('#btnCheckout').disabled = false;
         
     });
 
     loadCard();
+    $('#loading').css('display', 'none')
 }

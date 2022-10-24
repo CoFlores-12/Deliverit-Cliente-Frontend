@@ -1,0 +1,19 @@
+.container{
+    width: 100%;
+}
+
+.paso {
+    margin: 16px 0px;
+    position: relative;
+    justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.paso > .loading {
+    position: absolute;
+    top: -30px;
+    left: 32px;
+    transform: rotate(90deg);
+}
+

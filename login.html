@@ -76,14 +76,13 @@
     <script src="/assets/js/cash.min.js"></script>
     <script src="/assets/js/login.js"></script>
     
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="https://apis.google.com/js/api:client.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
     <script>
 
         //facebook login API
         window.fbAsyncInit = function() {
             FB.init({
-                appId   : '476594931046059',
+                appId   : '1198294224364209',
                 oauth   : true,
                 status  : true, // check login status
                 cookie  : true, // enable cookies to allow the server to access the session
@@ -103,7 +102,9 @@
 
                     FB.api('/me', function(response) {
                         user_email = response.email; //get user email
-                        console.log(response);           
+                        console.log(response); 
+                        document.cookie = 'username='+response['name']+'; expire=31536000;';
+                        window.location.href = 'home.html';             
                     });
 
                 } else {
@@ -124,16 +125,15 @@
 
         //Google API
         var googleUser = {};
-  var startApp = function() {
-    gapi.load('auth2', function(){
-      // Retrieve the singleton for the GoogleAuth library and set up the client.
-      auth2 = gapi.auth2.init({
-        client_id: 'Y156286288006-gh087gnfo5j1oc9e7g88oui46986r4pn.apps.googleusercontent.com',
-        cookiepolicy: 'single_host_origin',
-        // Request scopes in addition to 'profile' and 'email'
-        //scope: 'additional_scope'
-      });
-      attachSignin(document.getElementById('customBtn'));
+        var startApp = function() {
+            gapi.load('auth2', function(){
+            auth2 = gapi.auth2.init({
+                client_id: '39805201232-pb4i7slperjd416pu5itd8asvhtcahvo.apps.googleusercontent.com',
+                cookiepolicy: 'single_host_origin',
+                // Request scopes in addition to 'profile' and 'email'
+                //scope: 'additional_scope'
+            });
+        attachSignin(document.getElementById('customBtn'));
     });
   };
 
@@ -143,12 +143,14 @@
         function(googleUser) {
           console.log(googleUser.getBasicProfile());
         }, function(error) {
-          alert(JSON.stringify(error, undefined, 2));
+            console.log(JSON.stringify(error, undefined, 2));
         });
   }
 
   startApp();
+  
     </script>
+ 
 
           
 </body>

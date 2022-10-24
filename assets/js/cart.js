@@ -24,18 +24,19 @@ cart = [
     }
 ];
 
-
-
 var totalPrice = 0;
 
-function dibujarProductos() {
+async function dibujarProductos() {
+    if (window.localStorage.getItem('cart') != undefined) {
+        cart = JSON.parse(window.localStorage.getItem('cart'));
+    }
     var distance = $('#distanceRoute').html();
     totalPrice = 1*Number((distance*0.3)).toFixed(2);
     document.getElementById('listProducts').innerHTML='';
     
-for (let i = 0; i < cart.length; i++) {
-    const icon = (cart[i]['cant'] == 1) ? 'fa-regular fa-trash-can' : 'fa-solid fa-minus';
-    const product = '<div class="product row center-y">'+
+    for (let i = 0; i < cart.length; i++) {
+        const icon = (cart[i]['cant'] == 1) ? 'fa-regular fa-trash-can' : 'fa-solid fa-minus';
+        const product = '<div class="product row center-y">'+
             '<div class="imgProduct row center-xy">'+
                 '<img src="'+cart[i]['img']+'" alt="">'+
 
@@ -62,9 +63,10 @@ document.getElementById('priceTotal').innerHTML = '$'+Number((totalPrice).toFixe
 dibujarProductos();
 
 
-function plus(elment) { 
+async function plus(elment) { 
     const index = $(elment).attr('data-index');
     cart[index]['cant']++;
+    window.localStorage.setItem('cart', JSON.stringify(cart));
     dibujarProductos();
  };
 
@@ -91,6 +93,7 @@ async function minus(elment) {
     }else{
         cart[index]['cant']--;
     }
+    window.localStorage.setItem('cart', JSON.stringify(cart));
     dibujarProductos();
  };
 
@@ -129,6 +132,7 @@ const cancel = document.getElementById('cancel');
 
 function deleteProduct() {
     cart.splice(indexToDelete,1);
+    window.localStorage.setItem('cart', JSON.stringify(cart));
     closeModalDelete();
     dibujarProductos();
  }
@@ -145,6 +149,7 @@ function deleteProduct() {
             .then((ev) => {
                 cart = [];
                 closeModalDelete();
+                window.localStorage.setItem('cart', JSON.stringify(cart));
                 dibujarProductos();
             })
             .catch(() => closeModalDelete())
@@ -368,8 +373,8 @@ function loadCard() {
     //On Input Change Events
     name.addEventListener('input', function () {
         if (name.value.length == 0) {
-            document.getElementById('svgname').innerHTML = 'John Doe';
-            document.getElementById('svgnameback').innerHTML = 'John Doe';
+            document.getElementById('svgname').innerHTML = 'Deliverit';
+            document.getElementById('svgnameback').innerHTML = 'Deliverit';
         } else {
             document.getElementById('svgname').innerHTML = this.value;
             document.getElementById('svgnameback').innerHTML = this.value;

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <title>Deliverit | Order</title>
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json"/>
+    <link rel="apple-touch-icon" href="/assets/logo.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#E7EFF8" />
+    <meta name="theme-color" content="#E7EFF8"/>
+    <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Lexend&family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <script src="/assets/fontAwesome/js/all.js"></script>
+    <link rel="stylesheet" href="/assets/css/order.css">
+</head>
+<body>
+
+    <div class="enable-notifications">
+        <button>Active notifications</button>
+    </div>
+    <div class="container">
+        <div class="column center-x" style="width: 100%">
+            <div class="row paso center-y">
+                <i class="fa-solid fa-receipt"></i>
+                <span>order received</span>
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <div class="row paso center-y">
+                <svg class="loading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;background:rgba(255, 255, 255, 0);display:block;" width="30px" height="30px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                    <g transform="translate(20 50)">
+                    <circle cx="0" cy="0" r="6" fill="#8080808a">
+                      
+                    </circle>
+                    </g><g transform="translate(40 50)">
+                    <circle cx="0" cy="0" r="6" fill="#8080808a">
+                      
+                    </circle>
+                    </g><g transform="translate(60 50)">
+                    <circle cx="0" cy="0" r="6" fill="#8080808a">
+                      
+                    </circle>
+                    </g><g transform="translate(80 50)">
+                    <circle cx="0" cy="0" r="6" fill="#8080808a">
+                      
+                    </circle>
+                    </g>
+                    </svg>
+                <i class="fa-solid fa-clipboard-list"></i>
+                <span>preparing order</span>
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <div class="row paso center-y">
+                <svg class="loading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;background:rgba(255, 255, 255, 0);display:block;" width="30px" height="30px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                    <g transform="translate(20 50)">
+                    <circle cx="0" cy="0" r="6" fill="#3648CE">
+                      <animateTransform attributeName="transform" type="scale" begin="-0.375s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
+                    </circle>
+                    </g><g transform="translate(40 50)">
+                    <circle cx="0" cy="0" r="6" fill="#3648CE">
+                      <animateTransform attributeName="transform" type="scale" begin="-0.25s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
+                    </circle>
+                    </g><g transform="translate(60 50)">
+                    <circle cx="0" cy="0" r="6" fill="#3648CE">
+                      <animateTransform attributeName="transform" type="scale" begin="-0.125s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
+                    </circle>
+                    </g><g transform="translate(80 50)">
+                    <circle cx="0" cy="0" r="6" fill="#3648CE">
+                      <animateTransform attributeName="transform" type="scale" begin="0s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
+                    </circle>
+                    </g>
+                    </svg>
+                <i class="fa-solid fa-route"></i>
+                <span>order on the way</span>
+                <i class="fa-solid fa-phone"></i>
+            </div>
+            <div class="row paso center-y">
+                <i class="fa-solid fa-check-to-slot"></i>
+                <span>order delivered</span>
+                <i class="fa-solid fa-check"></i>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="/assets/js/cash.min.js"></script>
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/notifications.js"></script>
+</body>
+</html>
