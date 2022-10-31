@@ -265,6 +265,7 @@ nav {
     grid-template-areas: "name name""number number""expiration security";
     max-width: 400px;
     padding: 20px;
+    padding-top: 100px !important;
     color: #707070;
 }
 
@@ -318,8 +319,7 @@ input {
 .creditcard svg#cardfront,
 .creditcard svg#cardback {
     width: 100%;
-    -webkit-box-shadow: 1px 5px 6px 0px black;
-    box-shadow: 1px 5px 6px 0px black;
+    box-shadow: 6px 6px 12px #CBD4E3;
     border-radius: 22px;
 }
 
@@ -535,8 +535,7 @@ input {
     -webkit-transition: -webkit-transform 0.6s;
     transition: transform 0.6s;
     transition: transform 0.6s, -webkit-transform 0.6s;
-    position: absolute;
-    top: -120px;
+    position: relative;
 
 }
 
@@ -549,6 +548,8 @@ input {
     backface-visibility: hidden;
     -webkit-font-smoothing: antialiased;
     color: #47525d;
+    position: absolute;
+    bottom: -90px;
 }
 
 .creditcard .back {

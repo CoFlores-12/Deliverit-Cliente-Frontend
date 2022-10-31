@@ -1,3 +1,8 @@
+let locations = [
+    L.latLng(14.059899, -87.220381),
+    L.latLng(14.053579, -87.221811)
+];
+
 window.onload = async () => {
 
     const getCoords = async () => {
@@ -38,7 +43,7 @@ window.onload = async () => {
     };
     
     const coords = await getCoords();
-    console.log(coords);
+    locations.push(L.latLng(coords.lat, coords.long));
         
     window.LRM = {
         tileLayerUrl: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -79,11 +84,7 @@ window.onload = async () => {
 
                     return container;
                 }
-            }))([
-                L.latLng(14.059899, -87.220381),
-                L.latLng(14.053579, -87.221811),
-                L.latLng(coords.lat, coords.long)
-            ], {
+            }))(locations, {
                 geocoder: L.Control.Geocoder.nominatim(),
                 routeWhileDragging: false
             })

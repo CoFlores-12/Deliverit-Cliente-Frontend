@@ -22,6 +22,50 @@
     <meta name="google-signin-client_id" content="Y156286288006-gh087gnfo5j1oc9e7g88oui46986r4pn.apps.googleusercontent.com">
 </head>
 <body>
+    <div id="modalLoading">
+        <div class="card">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: rgba(241, 242, 243, 0); display: block;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                <defs>
+                  <filter id="ldio-v1po8els67-filter" x="-100%" y="-100%" width="300%" height="300%" color-interpolation-filters="sRGB">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="4"></feGaussianBlur>
+                    <feComponentTransfer result="cutoff">
+                      <feFuncA type="table" tableValues="0 0 0 0 0 0 1 1 1 1 1"></feFuncA>
+                    </feComponentTransfer>
+                  </filter>
+                </defs>
+                <g filter="url(#ldio-v1po8els67-filter)"><g transform="translate(50 50)">
+                <g>
+                  <circle cx="23" cy="0" r="5" fill="#00e097">
+                    <animate attributeName="r" keyTimes="0;0.5;1" values="6;14;6" dur="5s" repeatCount="indefinite" begin="-0.2s"></animate>
+                  </circle>
+                  <animateTransform attributeName="transform" type="rotate" keyTimes="0;1" values="0;360" dur="5s" repeatCount="indefinite" begin="0s"></animateTransform>
+                </g>
+                </g><g transform="translate(50 50)">
+                <g>
+                  <circle cx="23" cy="0" r="5" fill="#01c0ed">
+                    <animate attributeName="r" keyTimes="0;0.5;1" values="6;14;6" dur="2.5s" repeatCount="indefinite" begin="-0.15000000000000002s"></animate>
+                  </circle>
+                  <animateTransform attributeName="transform" type="rotate" keyTimes="0;1" values="0;360" dur="2.5s" repeatCount="indefinite" begin="-0.05s"></animateTransform>
+                </g>
+                </g><g transform="translate(50 50)">
+                <g>
+                  <circle cx="23" cy="0" r="5" fill="#3648ce">
+                    <animate attributeName="r" keyTimes="0;0.5;1" values="6;14;6" dur="1.6666666666666665s" repeatCount="indefinite" begin="-0.1s"></animate>
+                  </circle>
+                  <animateTransform attributeName="transform" type="rotate" keyTimes="0;1" values="0;360" dur="1.6666666666666665s" repeatCount="indefinite" begin="-0.1s"></animateTransform>
+                </g>
+                </g><g transform="translate(50 50)">
+                <g>
+                  <circle cx="23" cy="0" r="5" fill="#a827ca">
+                    <animate attributeName="r" keyTimes="0;0.5;1" values="6;14;6" dur="1.25s" repeatCount="indefinite" begin="-0.05s"></animate>
+                  </circle>
+                  <animateTransform attributeName="transform" type="rotate" keyTimes="0;1" values="0;360" dur="1.25s" repeatCount="indefinite" begin="-0.15000000000000002s"></animateTransform>
+                </g>
+                </g></g>
+                </svg>
+            Loading...
+        </div>
+    </div>
     <div class="viewer">
         <div class="container">
             <div class="headerLog">
@@ -35,8 +79,9 @@
             <div class="bodyLog">
 
                 <div class="contLog bsct">
-                    <input type="text" name="email" class="input" placeholder="Email">
-                    <input type="password" name="password" class="input" placeholder="Password">
+                    <input type="text" id="emailLog" name="email" class="input" placeholder="Email" required>
+                    <input type="password" id="passLog" name="password" class="input" placeholder="Password" required>
+                    <label for="info" id="infoLog">User no exist</label>
                     <button onclick="loginClick();" class="btn">
                         Log in
                         <div class="arrow-wrapper">
@@ -55,10 +100,11 @@
                 </div>
 
                 <div class="contSign bsct">
-                    <input type="text" name="username" class="input" placeholder="Username">
-                    <input type="text" name="Email" class="input" placeholder="Email">
-                    <input type="password" name="password" class="input" placeholder="Password">
-                    <button class="btn">
+                    <input type="text" id="nameSign" name="username" class="input" placeholder="Username" required>
+                    <input type="email" id="emailSign" name="Email" class="input" placeholder="Email" required>
+                    <input type="password" id="passSign" name="password" class="input" placeholder="Password" required>
+                    <label for="info" id="infoSIgn">User already exist</label>
+                    <button onclick="signClick()" class="btn">
                         Sign up
                         <div class="arrow-wrapper">
                             <div class="arrow"></div>

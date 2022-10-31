@@ -160,10 +160,10 @@ function deleteProduct() {
 
 function loadCard() {
 
-    const name = document.getElementById('name');
-    const cardnumber = document.getElementById('cardnumber');
-    const expirationdate = document.getElementById('expirationdate');
-    const securitycode = document.getElementById('securitycode');
+    const name = document.getElementById('namePay');
+    const cardnumber = document.getElementById('cardnumberPay');
+    const expirationdate = document.getElementById('expirationdatePay');
+    const securitycode = document.getElementById('securitycodePay');
     const output = document.getElementById('output');
     const ccicon = document.getElementById('ccicon');
     const ccsingle = document.getElementById('ccsingle');
@@ -445,4 +445,33 @@ window.onclick = function(event) {
 
 function showModalPay() {
     $('#modalCard').css('display', 'flex');
+}
+
+function pay() {
+    const name = document.getElementById('namePay');
+    const cardnumber = document.getElementById('cardnumberPay');
+    const expirationdate = document.getElementById('expirationdatePay');
+    const securitycode = document.getElementById('securitycodePay');
+
+    if (name==''&&cardnumber==''&&expirationdate==''&&securitycode=='') {
+        return
+    }
+
+    const user = {
+        name: 'admin',
+        email: 'admin',
+    }
+
+    const pedido = {
+        user: user,
+        productos: cart,
+        location: locations,
+        payment: {
+            name: name.value,
+            cardnumber: cardnumber.value
+        }
+    }
+    console.log("🚀 ~ file: cart.js ~ line 474 ~ pay ~ pedido", pedido)
+
+    window.location.href = 'order.html'
 }
