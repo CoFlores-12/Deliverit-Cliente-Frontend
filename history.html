@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <title>Deliverit | History</title>
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json"/>
+    <link rel="apple-touch-icon" href="/assets/logo.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#E7EFF8" />
+    <meta name="theme-color" content="#E7EFF8"/>
+    <link rel="shortcut icon" href="/assets/logo.png"" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Lexend&family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <script src="/assets/fontAwesome/js/all.js"></script>
+    <style>
+        .header {
+            height: 30%;
+            background: #fff;
+            border-radius: 0px 0px 20px 20px;
+        }
+        .header > .txt {
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            height: fit-content;
+            width: 100%;
+        }
+        #orders {
+            padding: 32px 16px;
+        }
+
+        .order {
+            background-color: #fff;
+            width: 100%;
+            padding: 16px;
+            box-sizing: border-box;
+            border-radius: 20px;
+            position: relative;
+            margin-bottom: 16px;
+        }
+        .order > .col {
+            position: relative;
+        }
+        .deb {
+            outline: 1px solid red;
+        }
+        .infoOrder {
+            margin-left: 8px;
+        }
+        .infoCont {
+            height: fit-content;
+            height: 0px;
+            overflow: hidden;
+        }
+        .fa-circle-check {
+            color: rgb(0, 177, 0);
+        }
+        .headerOrder {
+            position: relative;
+        }
+        .ViewInfoOrder{
+            color: grey;
+            position: absolute;
+            right: 0;
+            box-sizing: border-box;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="txt row center-x">
+            <h1>History</h1>
+            
+        </div>
+    </div>
+    <div id="orders">
+        <div class="order">
+            <div class="col">
+                <div class="col headerOrder">
+                    <strong>ID: 9721623</strong><i class="infoOrder fa-solid fa-circle-check"></i><i class="infoOrder fa-solid fa-clock"></i><br>
+                    <span>12:54 - 31/10/2022</span>
+                    <i data-id="order0" data-toggle="false" onclick="viewDetails(this)" class="ViewInfoOrder fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="col infoCont" id="order0">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit perspiciatis saepe temporibus, tempore pariatur libero possimus. Reprehenderit rerum deleniti hic ratione quam, minima earum voluptates incidunt, sunt aliquid voluptate fuga!
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="order">
+            <div class="col">
+                <div class="col headerOrder">
+                    <strong>ID: 9721623</strong><i class="infoOrder fa-solid fa-circle-check"></i><i class="infoOrder fa-solid fa-clock"></i><br>
+                    <span>12:54 - 31/10/2022</span>
+                    <i data-id="order1" data-toggle="false" onclick="viewDetails(this)" class="ViewInfoOrder fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="col infoCont" id="order1">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam exercitationem perspiciatis quis alias quos tempore impedit natus at, illo, dignissimos dolore consequatur eaque, odit tenetur ea dolorum quia veritatis voluptas.
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="/assets/js/cash.min.js"></script>
+    <script src="/assets/js/jquery.js"></script>
+    <script>
+        function viewDetails(reference) {
+            if ($(reference).attr('data-toggle') == 'false') {
+                $(reference).removeClass('fa-chevron-down');
+                $(reference).addClass('fa-chevron-up');
+                $(reference).attr('data-toggle', 'true'); 
+                $('#' + $(reference).attr('data-id')).css('height', 'fit-content')
+            }else {
+                $(reference).attr('data-toggle','false');
+                $(reference).removeClass('fa-chevron-up');
+                $(reference).addClass('fa-chevron-down');
+                $('#' + $(reference).attr('data-id')).css('height', '0px')
+            }
+        }
+    </script>
+</body>
+</html>

@@ -124,8 +124,9 @@ body {
  }
  
  .input:focus {
-  outline-color: rgba(255, 255, 255, 0.486);
-  place-content: "Enter your message!";
+   outline-color:#32D4A4;
+   place-content: "Enter your message!";
+   box-shadow: #32D4A4 0px 0px 0px 1px;
  }
 
 .btn {
@@ -163,4 +164,12 @@ body {
 #infoLog, #infoSIgn {
   color: red;
   display: none;
+}
+
+.input[aria-invalid="true"], .input[data-invalid] {
+  border-color: rgb(229, 62, 62);
+  box-shadow: rgb(229 62 62) 0px 0px 0px 1px;
+}
+
+.input:focus {
 }

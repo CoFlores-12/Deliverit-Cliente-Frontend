@@ -75,6 +75,11 @@
     color: #3648CE;
 }
 
+.btnsideActive:hover {
+  background-color: #E7EFF8;
+  color: #3648CE;
+}
+
 #username {
     font-size: 1.5rem;
 }

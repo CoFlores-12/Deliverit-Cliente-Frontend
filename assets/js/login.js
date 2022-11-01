@@ -120,3 +120,11 @@ function signClick() {
     
     //window.location.href = 'home.html';
 }
+
+$('.input').focusout(function() {
+    if ($(this).val()=='') {
+        $(this).attr('aria-invalid', "true" );
+    }else{
+        $(this).removeAttr('aria-invalid');
+    }
+})

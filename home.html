@@ -42,8 +42,13 @@
                 <h4 id="username">{Username}</h4>
             </div>
             <div class="bodySide flex-colum ">
-                <button class="btn btnside btnsideActive" type="button"><i class="fa-solid iconside fa-house"></i> Home</button>
-                <button class="btn btnside" type="button"><i class="fa-solid iconside fa-gear"></i> Settings</button>
+                <button onclick="sidebar()" class="btn btnside btnsideActive" type="button">
+                    <i class="fa-solid iconside fa-house"></i> Home
+                </button>
+                <button onclick="document.location.href = 'history.html'" class="btn btnside" type="button">
+                    <i class="fa-solid iconside fa-table-list"></i> History
+                </button>
+                
             </div>
             <div class="footerSide">
                 <button onclick="logout();" class="btn btnside" type="button"><i class="fa-solid iconside fa-door-open"></i> Log Out</button>
