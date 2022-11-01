@@ -12,6 +12,7 @@ const assets = [
     "/home.html",
     "/assets/css/home.css",
     "/assets/js/home.js",
+    "/assets/css/css2.css",
 
     "/assets/img/iconos/coctel.png",
     "/assets/img/iconos/comida-rapida.png",
@@ -22,11 +23,6 @@ const assets = [
     "/login.html",
     '/assets/css/login.css',
     "/assets/js/login.js",
-
-    "/homeCategories.html",
-    "/assets/css/homeCategories.css",
-    "/assets/js/homeCategories.js",
-    "/assets/img/banners/food.webp"
 ];
 
 self.addEventListener("install", installEvent => {
@@ -39,8 +35,23 @@ self.addEventListener("install", installEvent => {
 
 self.addEventListener("fetch", fetchEvent => {
     fetchEvent.respondWith(
-      caches.match(fetchEvent.request).then(res => {
-        return res || fetch(fetchEvent.request);
+      caches.match(fetchEvent.request).then(cacheResponse => {
+        if (cacheResponse) {
+            fetch(fetchEvent.request).then((networkResponse) => {
+              return caches.open("Deliverit-caches").then((cache) => {
+                cache.put(fetchEvent.request, networkResponse.clone());
+                return networkResponse;
+              })
+            });
+            return cacheResponse;
+          } else {
+            return fetch(fetchEvent.request).then((networkResponse) => {
+              return caches.open("Deliverit-caches").then((cache) => {
+                cache.put(fetchEvent.request, networkResponse.clone());
+                return networkResponse;
+              })
+            });
+          }
       })
     );
 });
