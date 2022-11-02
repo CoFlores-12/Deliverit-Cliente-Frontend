@@ -1,17 +1,23 @@
 const enableNotificationsButtons = document.querySelectorAll('.enable-notifications'); 
 
+Notification.requestPermission(result => { 
+    if(result === 'granted') { 
+          $(enableNotificationsButtons).css('display', 'none')
+    } 
+})
+
 const askForNotificationPermission = () => { 
       Notification.requestPermission(result => { 
       if(result === 'granted') { 
-          displayConfirmNotification();
-          // configurePushSubscription(); 
+        $(enableNotificationsButtons).css('display', 'none')
+            displayConfirmNotification();
       } 
    });
 };
 
 if('Notification' in window) {
       for(let i = 0; i < enableNotificationsButtons.length; i++) {
-          enableNotificationsButtons[i].style.display = 'inline-block'; 
+          enableNotificationsButtons[i].style.display = 'flex'; 
           enableNotificationsButtons[i].addEventListener('click', askForNotificationPermission); 
       }
 }
@@ -19,7 +25,7 @@ if('Notification' in window) {
 const displayConfirmNotification = () => { 
     if('serviceWorker' in navigator) {
        const options= {
-             body: 'You successfully subscribed to our Notification service!',
+             body: 'You order is ready!',
              icon: '/assets/logo.png',
              image: '/assets/logo.png',
              dir: 'ltr',

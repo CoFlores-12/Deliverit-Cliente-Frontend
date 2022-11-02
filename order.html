@@ -23,72 +23,169 @@
     <div class="enable-notifications">
         <button>Active notifications</button>
     </div>
+    
     <div class="container">
+        <div class="header">
+            <div class="col">
+                <strong>ID: <span id="id"></span></strong><br>
+                <span id="date"></span>
+                <h4 id="status"></h4>
+            </div>
+        </div>
         <div class="column center-x" style="width: 100%">
             <div class="row paso center-y">
                 <i class="fa-solid fa-receipt"></i>
-                <span>order received</span>
+                <span id="status0">order received</span>
                 <i class="fa-solid fa-check"></i>
             </div>
             <div class="row paso center-y">
-                <svg class="loading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;background:rgba(255, 255, 255, 0);display:block;" width="30px" height="30px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
-                    <g transform="translate(20 50)">
-                    <circle cx="0" cy="0" r="6" fill="#8080808a">
-                      
-                    </circle>
-                    </g><g transform="translate(40 50)">
-                    <circle cx="0" cy="0" r="6" fill="#8080808a">
-                      
-                    </circle>
-                    </g><g transform="translate(60 50)">
-                    <circle cx="0" cy="0" r="6" fill="#8080808a">
-                      
-                    </circle>
-                    </g><g transform="translate(80 50)">
-                    <circle cx="0" cy="0" r="6" fill="#8080808a">
-                      
-                    </circle>
-                    </g>
-                    </svg>
+                <div class="loading preparing"></div>
                 <i class="fa-solid fa-clipboard-list"></i>
-                <span>preparing order</span>
-                <i class="fa-solid fa-check"></i>
+                <span  id="status1">preparing order</span>
+                <i class="fa-solid preparingIcon"></i>
             </div>
             <div class="row paso center-y">
-                <svg class="loading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;background:rgba(255, 255, 255, 0);display:block;" width="30px" height="30px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
-                    <g transform="translate(20 50)">
-                    <circle cx="0" cy="0" r="6" fill="#3648CE">
-                      <animateTransform attributeName="transform" type="scale" begin="-0.375s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
-                    </circle>
-                    </g><g transform="translate(40 50)">
-                    <circle cx="0" cy="0" r="6" fill="#3648CE">
-                      <animateTransform attributeName="transform" type="scale" begin="-0.25s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
-                    </circle>
-                    </g><g transform="translate(60 50)">
-                    <circle cx="0" cy="0" r="6" fill="#3648CE">
-                      <animateTransform attributeName="transform" type="scale" begin="-0.125s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
-                    </circle>
-                    </g><g transform="translate(80 50)">
-                    <circle cx="0" cy="0" r="6" fill="#3648CE">
-                      <animateTransform attributeName="transform" type="scale" begin="0s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
-                    </circle>
-                    </g>
-                    </svg>
+                <div class="loading way"></div>
                 <i class="fa-solid fa-route"></i>
-                <span>order on the way</span>
-                <i class="fa-solid fa-phone"></i>
+                <span id="status2">order on the way</span>
+                    <button class="wayIcon">
+                        <a href="tel:5551234567">
+                            <i  class="fa-solid fa-phone "></i>
+                        </a>
+                    </button>
             </div>
             <div class="row paso center-y">
+                <div class="loading delivered"></div>
                 <i class="fa-solid fa-check-to-slot"></i>
-                <span>order delivered</span>
-                <i class="fa-solid fa-check"></i>
+                <span id="status3">order delivered</span>
+                <i class="fa-solid fa-clock deliveredIcon"></i>
             </div>
-            
         </div>
     </div>
 
     <script src="/assets/js/cash.min.js"></script>
     <script src="/assets/js/jquery.js"></script>
     <script src="/assets/js/notifications.js"></script>
+    <script>
+        let orders = [
+            {
+                ID: 123342,
+                date: '12:05 - 30/10/2022',
+                status: 'Received',
+                dealer: {
+                    name: 'Carlos',
+                    tel: '5551234567'
+                }
+            },
+            {
+                ID: 123423,
+                date: '12:54 - 31/10/2022',
+                status: 'Preparing',
+                dealer: {
+                    name: 'Mario',
+                    tel: '5551234598'
+                }
+            },
+            {
+                ID: 123424,
+                date: '10:20 - 31/10/2022',
+                status: 'OnTheWay',
+                dealer: {
+                    name: 'pedro',
+                    tel: '55512386667'
+                }
+            },
+            {
+                ID: 123425,
+                date: '10:20 - 31/10/2022',
+                status: 'Delivered',
+                dealer: {
+                    name: 'pedro',
+                    tel: '55512386667'
+                }
+            },
+            
+        ]
+
+        const orderID = new URLSearchParams(document.URL).get('ID');
+        const order = orders.find(orderE => orderE.ID == orderID);
+        $('#id').html(order.ID);
+        $('#date').html(order.date);
+        $('#status').html(order.status);
+        const icon0 = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;background:rgba(255, 255, 255, 0);display:block;" width="30px" height="30px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                        <g transform="translate(20 50)">
+                        <circle cx="0" cy="0" r="6" fill="#8080808a">
+                          
+                        </circle>
+                        </g><g transform="translate(40 50)">
+                        <circle cx="0" cy="0" r="6" fill="#8080808a">
+                          
+                        </circle>
+                        </g><g transform="translate(60 50)">
+                        <circle cx="0" cy="0" r="6" fill="#8080808a">
+                          
+                        </circle>
+                        </g><g transform="translate(80 50)">
+                        <circle cx="0" cy="0" r="6" fill="#8080808a">
+                          
+                        </circle>
+                        </g>
+                        </svg>`;
+        const icon1 = `<svg class="loading" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;background:rgba(255, 255, 255, 0);display:block;" width="30px" height="30px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                        <g transform="translate(20 50)">
+                        <circle cx="0" cy="0" r="6" fill="#3648CE">
+                          <animateTransform attributeName="transform" type="scale" begin="-0.375s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
+                        </circle>
+                        </g><g transform="translate(40 50)">
+                        <circle cx="0" cy="0" r="6" fill="#3648CE">
+                          <animateTransform attributeName="transform" type="scale" begin="-0.25s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
+                        </circle>
+                        </g><g transform="translate(60 50)">
+                        <circle cx="0" cy="0" r="6" fill="#3648CE">
+                          <animateTransform attributeName="transform" type="scale" begin="-0.125s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
+                        </circle>
+                        </g><g transform="translate(80 50)">
+                        <circle cx="0" cy="0" r="6" fill="#3648CE">
+                          <animateTransform attributeName="transform" type="scale" begin="0s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
+                        </circle>
+                        </g>
+                        </svg>`;
+        
+        if (order.status === 'Delivered') {
+            $('.delivered').append(icon0);
+            $('.preparing').append(icon0);
+            $('.way').append(icon0);
+            $('.wayIcon').prop('disabled', true);
+            $('.preparingIcon').addClass('fa-check');
+            $('.deliveredIcon').addClass('fa-check');
+            $('#status').css('color', 'green');
+            $('#status3').addClass('statusStrong');
+        }
+        if (order.status === 'OnTheWay') {
+            $('.delivered').append(icon1);
+            $('.preparing').append(icon0);
+            $('.way').append(icon0);
+            $('.deliveredIcon').append(icon1);
+            $('.wayIcon').prop('disabled', false);
+            $('.preparingIcon').addClass('fa-check');
+            $('.deliveredIcon').addClass('fa-clock');
+            $('#status2').addClass('statusStrong');
+        }
+        if (order.status === 'Preparing') {
+            $('.preparing').append(icon0);
+            $('.way').append(icon1);
+            $('.wayIcon').prop('disabled', true);
+            $('.preparingIcon').addClass('fa-check');
+            $('.deliveredIcon').addClass('fa-clock');
+            $('#status1').addClass('statusStrong');
+        }
+        if (order.status === 'Received') {
+            $('.preparing').append(icon1);
+            $('.wayIcon').prop('disabled', true);
+            $('.preparingIcon').addClass('fa-clock');
+            $('.deliveredIcon').addClass('fa-clock');
+            $('#status0').addClass('statusStrong');
+        }
+    </script>
 </body>
 </html>

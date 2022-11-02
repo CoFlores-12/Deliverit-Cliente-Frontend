@@ -17,3 +17,91 @@
     transform: rotate(90deg);
 }
 
+.enable-notifications {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 16px;
+}
+
+.enable-notifications > button {
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    background-color: #3648CE;
+    color: white;
+    padding: 8px 4px;
+    border-radius: 20px;
+    transition: scale 0.4s;
+}
+.enable-notifications > button:active {
+    scale: 0.8;
+}
+
+.fa-solid {
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.fa-check {
+    padding: 8px;
+    border-radius: 50%;
+    background-color: rgba(0, 177, 0, 0.054);
+    color: rgb(0, 177, 0);
+}
+
+.fa-clock {
+    padding: 8px;
+    border-radius: 50%;
+    color: grey;
+    background-color: rgba(0, 0, 0, 0.014);
+}
+
+.fa-active {
+    color: black;
+}
+
+.fa-pendient {
+    color: grey;
+}
+
+.fa-phone {
+    color: #fff;
+    background-color: #3648CE;
+    padding: 8px;
+    border-radius: 50%;
+    transition: scale 0.3s;
+}
+
+.fa-phone:active {
+    scale: 0.8;
+}
+
+.wayIcon {
+    border: none;
+    padding: 0px;
+}
+
+.wayIcon:disabled {
+    pointer-events: none;
+    opacity: 0.65;
+}
+
+.header {
+    min-height: 10vh;
+    background-color: #fff;
+    padding: 16px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 6px 6px 12px #CBD4E3;
+    position: relative;
+}
+.header > .col {
+    position: sticky;
+    top: 16px;
+}
+
+.statusStrong {
+    font-weight: bold;
+    color: #000;
+}

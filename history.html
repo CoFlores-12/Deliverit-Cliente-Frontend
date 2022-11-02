@@ -71,48 +71,131 @@
             transform: translateY(-50%);
             padding: 16px;
         }
+        .pr {
+            font-size: 0.7rem;
+            padding: 8px 0px;
+        }
+        .pr > img {
+            max-width: 30%;
+            height: auto;
+        }
+        .price {
+            text-align: right;
+        }
+        .infoPr {
+            flex: 3;
+        }
+        .track {
+            width: 100%;
+            border: none;
+            background-color: #3648CE;
+            color: white;
+            padding: 4px;
+            border-radius: 20px;
+            transition: scale 0.4s;
+        }
+        .track:active {
+            scale: 0.8;
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <div class="txt row center-x">
             <h1>History</h1>
-            
         </div>
     </div>
     <div id="orders">
-        <div class="order">
-            <div class="col">
-                <div class="col headerOrder">
-                    <strong>ID: 9721623</strong><i class="infoOrder fa-solid fa-circle-check"></i><i class="infoOrder fa-solid fa-clock"></i><br>
-                    <span>12:54 - 31/10/2022</span>
-                    <i data-id="order0" data-toggle="false" onclick="viewDetails(this)" class="ViewInfoOrder fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="col infoCont" id="order0">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit perspiciatis saepe temporibus, tempore pariatur libero possimus. Reprehenderit rerum deleniti hic ratione quam, minima earum voluptates incidunt, sunt aliquid voluptate fuga!
-                </div>
-            </div>
-            
-        </div>
-
-        <div class="order">
-            <div class="col">
-                <div class="col headerOrder">
-                    <strong>ID: 9721623</strong><i class="infoOrder fa-solid fa-circle-check"></i><i class="infoOrder fa-solid fa-clock"></i><br>
-                    <span>12:54 - 31/10/2022</span>
-                    <i data-id="order1" data-toggle="false" onclick="viewDetails(this)" class="ViewInfoOrder fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="col infoCont" id="order1">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam exercitationem perspiciatis quis alias quos tempore impedit natus at, illo, dignissimos dolore consequatur eaque, odit tenetur ea dolorum quia veritatis voluptas.
-                </div>
-            </div>
-            
-        </div>
+        
     </div>
 
     <script src="/assets/js/cash.min.js"></script>
     <script src="/assets/js/jquery.js"></script>
     <script>
+        let orders = [
+        {
+                ID: 123342,
+                date: '12:05 - 30/10/2022',
+                status: 'Received',
+                dealer: {
+                    name: 'Carlos',
+                    tel: '5551234567'
+                },
+                products: [
+                    {
+                        img: '/assets//img/tmp/image_2022-10-12_221845364-removebg-preview.png',
+                        name: 'Burger',
+                        store: 'McDonalds',
+                        price: 12.99
+                    }
+                ]
+            },
+            {
+                ID: 123423,
+                date: '12:54 - 31/10/2022',
+                status: 'Preparing',
+                dealer: {
+                    name: 'Mario',
+                    tel: '5551234598'
+                },
+                products: [
+                    {
+                        img: '/assets//img/tmp/image_2022-10-12_221845364-removebg-preview.png',
+                        name: 'Burger',
+                        store: 'McDonalds',
+                        price: 12.99
+                    },
+                    {
+                        img: '/assets//img/tmp/image_2022-10-12_221845364-removebg-preview.png',
+                        name: 'Burger',
+                        store: 'McDonalds',
+                        price: 12.99
+                    }
+                ]
+            },
+            {
+                ID: 123424,
+                date: '10:20 - 31/10/2022',
+                status: 'OnTheWay',
+                dealer: {
+                    name: 'pedro',
+                    tel: '55512386667'
+                },
+                products: [
+                    {
+                        img: '/assets//img/tmp/image_2022-10-12_221845364-removebg-preview.png',
+                        name: 'Burger',
+                        store: 'McDonalds',
+                        price: 12.99
+                    },
+                    {
+                        img: '/assets//img/tmp/image_2022-10-12_221845364-removebg-preview.png',
+                        name: 'Burger',
+                        store: 'McDonalds',
+                        price: 12.99
+                    }
+                ]
+            },
+            {
+                ID: 123425,
+                date: '10:20 - 31/10/2022',
+                status: 'Delivered',
+                dealer: {
+                    name: 'pedro',
+                    tel: '55512386667'
+                },
+                products: [
+                    {
+                        img: '/assets//img/tmp/image_2022-10-12_221845364-removebg-preview.png',
+                        name: 'Burger',
+                        store: 'McDonalds',
+                        price: 12.99
+                    }
+                ]
+            },
+        
+            
+        ]
         function viewDetails(reference) {
             if ($(reference).attr('data-toggle') == 'false') {
                 $(reference).removeClass('fa-chevron-down');
@@ -126,6 +209,39 @@
                 $('#' + $(reference).attr('data-id')).css('height', '0px')
             }
         }
+        orders.forEach((order, index) => {
+            let products='';
+            order['products'].forEach(product => {
+                products += 
+                    `<div class="pr row center-y">
+                        <img width="20%" src="${product.img}" alt="">
+                        <div class="col infoPr">
+                            <strong>${product.name}</strong><br>
+                            <span>${product.store}</span>
+                        </div>
+                        <div class="col center-xy price">
+                            <span>$${product.price}</span>
+                        </div>
+                    </div>`
+            });
+            const icon = (order.status === 'Delivered')? 'fa-circle-check' : 'fa-clock';
+            let data = 
+                `<div class="order">
+                    <div class="col">
+                        <div class="col headerOrder">
+                            <strong>ID: ${order.ID}</strong><i class="infoOrder fa-solid ${icon}"></i><br>
+                            <span>${order.date}</span>
+                            <i data-id="order${index}" data-toggle="false" onclick="viewDetails(this)" class="ViewInfoOrder fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="col infoCont" id="order${index}">
+                            ${products}
+                            <a href="order.html?app=deliverit&ID=${order.ID}"><button class="track btn">Track order</button></a>
+                        </div>
+                    </div>
+                </div>`;
+            $('#orders').append(data);
+
+        });
     </script>
 </body>
 </html>
