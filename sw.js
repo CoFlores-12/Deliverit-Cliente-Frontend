@@ -46,10 +46,7 @@ self.addEventListener("fetch", fetchEvent => {
             return cacheResponse;
           } else {
             return fetch(fetchEvent.request).then((networkResponse) => {
-              return caches.open("Deliverit-caches").then((cache) => {
-                cache.put(fetchEvent.request, networkResponse.clone());
-                return networkResponse;
-              })
+              return networkResponse
             });
           }
       })
