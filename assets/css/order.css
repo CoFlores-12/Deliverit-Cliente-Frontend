@@ -23,6 +23,8 @@
     justify-content: center;
     box-sizing: border-box;
     padding: 16px;
+    background-color: #fff;
+    z-index: 10;
 }
 
 .enable-notifications > button {

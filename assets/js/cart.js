@@ -63,6 +63,15 @@ document.getElementById('priceTotal').innerHTML = '$'+Number((totalPrice).toFixe
 dibujarProductos();
 
 
+$('.inputCart').focusout(function() {
+    console.log('focusout')
+    if ($(this).val()=='') {
+        $(this).attr('aria-invalid', "true" );
+    }else{
+        $(this).removeAttr('aria-invalid');
+    }
+})
+
 async function plus(elment) { 
     const index = $(elment).attr('data-index');
     cart[index]['cant']++;
@@ -452,9 +461,27 @@ function pay() {
     const cardnumber = document.getElementById('cardnumberPay');
     const expirationdate = document.getElementById('expirationdatePay');
     const securitycode = document.getElementById('securitycodePay');
-
-    if (name==''&&cardnumber==''&&expirationdate==''&&securitycode=='') {
-        return
+    
+     $(name).removeAttr('aria-invalid');
+     $(cardnumber).removeAttr('aria-invalid');
+      $(expirationdate).removeAttr('aria-invalid');
+       $(securitycode).removeAttr('aria-invalid');
+       
+    if (name.value==='') {
+      $(name).attr('aria-invalid', "true" );
+      return
+    }
+    if (cardnumber.value==='') {
+      $(cardnumber).attr('aria-invalid', "true" );
+      return
+    }
+    if (expirationdate.value==='') {
+      $(expirationdate).attr('aria-invalid', "true" );
+      return
+    }
+    if (securitycode.value==='') {
+      $(securitycode).attr('aria-invalid', "true" );
+      return
     }
 
     const user = {
@@ -473,5 +500,5 @@ function pay() {
     }
     console.log("🚀 ~ file: cart.js ~ line 474 ~ pay ~ pedido", pedido)
 
-    window.location.href = 'order.html'
+    window.location.href = 'order.html?app=deliverit&ID=123342'
 }

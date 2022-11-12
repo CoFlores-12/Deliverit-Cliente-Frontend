@@ -589,3 +589,7 @@ input {
     transform: translateY(10px);
     transition: 100ms;
    }
+.inputCart[aria-invalid="true"], .inputCart[data-invalid] {
+  border-color: rgb(229, 62, 62);
+  box-shadow: rgb(229 62 62) 0px 0px 0px 1px;
+}
