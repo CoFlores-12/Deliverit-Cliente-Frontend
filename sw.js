@@ -23,6 +23,12 @@ const assets = [
     "/login.html",
     '/assets/css/login.css',
     "/assets/js/login.js",
+    
+    "/store.html",
+    "/order.html",
+    "/homeCategories.html",
+    "/history.html",
+    "/cart.html",
 ];
 
 self.addEventListener("install", installEvent => {
