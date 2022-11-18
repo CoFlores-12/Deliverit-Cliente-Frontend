@@ -1,5 +1,3 @@
-
-
 //install SW
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", function() {
@@ -39,21 +37,41 @@ var elements = [
     }
 ];
 
+(function () {
 
-(async function () {
-  
+    const settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://localhost:3000/categories",
+        "method": "GET",
+        "headers": {}
+      };
+      
+    $.ajax(settings)
+        .done(async function (response) {
+            $('#categorias').html('');
+            response.forEach((element) => {
+                $('#categorias').append('<div onClick="goTo(this);" data-CatID="'+element._id+'" style="background-color: '+element['color']+';"'+' class="animate__animated animate__bounceIn touchable categoria-elemet">'+
+                '<div class="contenido" >'+
+                    '<h3>'+element['name']+'</h3>'+
+                    '<img class="animate__animated animate__bounceIn" src="'+element['icon']+'" alt="">'+
+                '</div>'+
+            '</div>')
+            });
+        })
+        .fail(function() {
+            alert( "error connecting to server [displaying temporary data]" );
+            $('#categorias').html(' ');
 
-  await sleep(2000);
-  $('#categorias').html(' ');
-
-  for (let i = 0; i < elements.length; i++) {
-      $('#categorias').append('<div onClick="goTo(this);" data-CatID="'+i+'" style="background-color: '+elements[i]['color']+';"'+' class="animate__animated animate__bounceIn touchable categoria-elemet">'+
-      '<div class="contenido" >'+
-          '<h3>'+elements[i]['name']+'</h3>'+
-          '<img class="animate__animated animate__bounceIn" src="'+elements[i]['icon']+'" alt="">'+
-      '</div>'+
-'</div>');
-  }
+            for (let i = 0; i < elements.length; i++) {
+                $('#categorias').append('<div onClick="goTo(this);" data-CatID="'+i+'" style="background-color: '+elements[i]['color']+';"'+' class="animate__animated animate__bounceIn touchable categoria-elemet">'+
+                '<div class="contenido" >'+
+                    '<h3>'+elements[i]['name']+'</h3>'+
+                    '<img class="animate__animated animate__bounceIn" src="'+elements[i]['icon']+'" alt="">'+
+                '</div>'+
+            '</div>');
+            }
+        })
 })
 
 ();
@@ -102,5 +120,6 @@ function logout() {
 }
 
 function goTo(category) {
-    window.location.href = 'homeCategories.html?app=deliverit&category='+$(category).attr('data-CatID');
+    //window.location.href = 'homeCategories.html?app=deliverit&category='+$(category).attr('data-CatID');
+    window.location.href = 'homeCategories.html?app=deliverit&category=0';
 }
