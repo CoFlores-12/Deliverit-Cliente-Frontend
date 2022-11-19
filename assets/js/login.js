@@ -14,45 +14,6 @@ function logTabs(element) {
 
 }
 
-let users = [
-    {
-        name: 'admin',
-        email: 'admin',
-        password: 'admin'
-    }
-];
-
-if (window.localStorage.getItem('users') != undefined) {
-    users = JSON.parse(window.localStorage.getItem('users'))
-}else{
-    window.localStorage.setItem('users', JSON.stringify(users))
-}
-
-console.clear();
-console.table(users);
-
-function autentificationFromAPI(email, password) {
-    let ban = false;
-
-    users.forEach(user => {
-        if (user.email == email) {
-            if (user.password == password) {
-                ban = true;
-                document.cookie = 'username='+user.name+'; expire=31536000;';
-                return ban;
-            }
-            $('#infoLog').html('password incorrect');
-        }
-    })
-
-    if (!ban) {
-        $('#infoLog').css('display', 'inline');
-        $('#modalLoading').css('display', 'none');
-    }
-    
-    return ban;
-}
-
 function signFromAPI(username, email, password) {
     let ban = false;
 
@@ -84,41 +45,47 @@ function loginClick() {
     if (email.length >0 && pass.length > 0) {
         $('#modalLoading').css('display', 'flex');
 
-        if (autentificationFromAPI(email, pass)) {
-            window.location.href = 'home.html';
-            return
-        }
-        const timer = setInterval(() => {
+        $.post("http://localhost:3000/client/login", {
+            "email": email,
+            "password": pass
+        }).done(function (response) {
+            console.log(response);
+            document.cookie = 'username='+response.username+'; expire=31536000;';
+            document.cookie = 'id='+response._id+'; expire=31536000;';
             $('#modalLoading').css('display', 'none');
-            clearInterval(timer);
-        }, 2000);
+            //window.location.href = 'home.html';
+        }).fail(function(xhr, status, res) {
+            $('#infoLog').html(xhr.responseText);
+            $('#infoLog').css('display', 'inline');
+            $('#modalLoading').css('display', 'none');
+        })
     }
 }
 
 
 function signClick() {
-
     const email = $('#emailSign').val();
     const name = $('#nameSign').val();
     const pass = $('#passSign').val();
 
     if (email.length > 0 && pass.length > 0 && name.length > 0) {
         $('#modalLoading').css('display', 'flex');
-        if (signFromAPI(name, email, pass)) {
-            document.cookie = 'username='+name+'; expire=31536000;';
-            window.location.href = 'home.html';
-            const timer = setInterval(() => {
-                $('#modalLoading').css('display', 'none');
-                clearInterval(timer);
-            }, 2000);
-            console.clear();
-            console.table(users);
-        }
-        
-    }
 
-    
-    //window.location.href = 'home.html';
+        $.post("http://localhost:3000/client/signin", {
+            "username": name,
+            "email": email,
+            "password": pass
+        }).done(function (response) {
+            document.cookie = 'username='+response.username+'; expire=31536000;';
+            document.cookie = 'id='+response._id+'; expire=31536000;';
+            $('#modalLoading').css('display', 'none');
+            //window.location.href = 'home.html';
+        }).fail(function(xhr, status, res) {
+            $('#infoLog').html(xhr.responseText);
+            $('#infoLog').css('display', 'inline');
+            $('#modalLoading').css('display', 'none');
+        })
+    }
 }
 
 $('.input').focusout(function() {

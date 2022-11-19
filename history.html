@@ -209,39 +209,56 @@
                 $('#' + $(reference).attr('data-id')).css('height', '0px')
             }
         }
-        orders.forEach((order, index) => {
-            let products='';
-            order['products'].forEach(product => {
-                products += 
-                    `<div class="pr row center-y">
-                        <img width="20%" src="${product.img}" alt="">
-                        <div class="col infoPr">
-                            <strong>${product.name}</strong><br>
-                            <span>${product.store}</span>
-                        </div>
-                        <div class="col center-xy price">
-                            <span>$${product.price}</span>
-                        </div>
-                    </div>`
-            });
-            const icon = (order.status === 'Delivered')? 'fa-circle-check' : 'fa-clock';
-            let data = 
-                `<div class="order">
-                    <div class="col">
-                        <div class="col headerOrder">
-                            <strong>ID: ${order.ID}</strong><i class="infoOrder fa-solid ${icon}"></i><br>
-                            <span>${order.date}</span>
-                            <i data-id="order${index}" data-toggle="false" onclick="viewDetails(this)" class="ViewInfoOrder fa-solid fa-chevron-down"></i>
-                        </div>
-                        <div class="col infoCont" id="order${index}">
-                            ${products}
-                            <a href="order.html?app=deliverit&ID=${order.ID}"><button class="track btn">Track order</button></a>
-                        </div>
-                    </div>
-                </div>`;
-            $('#orders').append(data);
 
+        const settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:3000/client/orders",
+            "method": "GET",
+            "headers": {}
+        };
+
+        $.ajax(settings).done(function (response) {
+            orders = []
+            orders = JSON.parse(response)
+            renderOrders()
         });
+
+        function renderOrders() {
+            orders.forEach((order, index) => {
+                let products='';
+                order['products'].forEach(product => {
+                    products += 
+                        `<div class="pr row center-y">
+                            <img width="20%" src="${product.img}" alt="">
+                            <div class="col infoPr">
+                                <strong>${product.name}</strong><br>
+                                <span>${product.store}</span>
+                            </div>
+                            <div class="col center-xy price">
+                                <span>$${product.price}</span>
+                            </div>
+                        </div>`
+                });
+                const icon = (order.status === 'Delivered')? 'fa-circle-check' : 'fa-clock';
+                let data = 
+                    `<div class="order">
+                        <div class="col">
+                            <div class="col headerOrder">
+                                <strong>ID: ${order.id}</strong><i class="infoOrder fa-solid ${icon}"></i><br>
+                                <span>${order.date}</span>
+                                <i data-id="order${index}" data-toggle="false" onclick="viewDetails(this)" class="ViewInfoOrder fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="col infoCont" id="order${index}">
+                                ${products}
+                                <a href="order.html?app=deliverit&ID=${order.id}"><button class="track btn">Track order</button></a>
+                            </div>
+                        </div>
+                    </div>`;
+                $('#orders').append(data);
+
+            });
+        }
     </script>
 </body>
 </html>
