@@ -81,8 +81,9 @@
             };
 
             $.ajax(settings).done(function (response) {
+                console.log(response);
                 order = [];
-                order = JSON.parse(response)[0];
+                order = response;
                 renderOrders()
             });
         })();

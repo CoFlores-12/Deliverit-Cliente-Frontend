@@ -1,9 +1,21 @@
 let cartCount = 0;
 
-const store = new URLSearchParams(document.URL).get('store');
+const storeID = new URLSearchParams(document.URL).get('store');
+let store = [];
 
 (async ()=>{
+  const settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost:3000/store/"+storeID,
+    "method": "GET",
+    "headers": {}
+  };
 
+  $.ajax(settings).done(function (response) {
+    store = response[0];
+    renderInformation();
+  });
 })();
 
 $.fn.animateTransform = function(/* [start,] end [, duration] [, callback] */){
@@ -39,14 +51,14 @@ $.fn.animateTransform = function(/* [start,] end [, duration] [, callback] */){
   };
 
 let productSelect;
+let countPr = 1;
 
 function openModalProduct(product) {
-
-  productSelect = product;
-
+  countPr = 1;
+    productSelect = store.products.find(productTMP => productTMP._id ===$(product).attr('data-idPr'));
     const imgSelect = $(product)[0].children[0];
     $('#modalPr').css('display', 'block');
-    $('#imgPr').attr('src',$(imgSelect).attr('src'));
+    $('#imgPr').attr('src', productSelect.img);
 
     $('#modalPr').css('top', $(imgSelect).offset().top);
     $('#modalPr').css('left', $(imgSelect).offset().left);
@@ -55,8 +67,9 @@ function openModalProduct(product) {
     
     $('#modalPr').css('border-radius', '50%');
 
-    $('#namePr').html($('.data>strong>.name',product).html());
-    $('#pricePr').html($('.data>.price',product).html());
+    $('#namePr').html(productSelect.name);
+    $('#pricePr').html(productSelect.price);
+    $('#dataPr').html(productSelect.description);
 
     $('.containeImgPr').animate({
       height: '30%'
@@ -83,7 +96,6 @@ function closeModalProduct() {
   $('#modalPr').animate({
       top: '100vh',
       left: 0,
-      borderRadius: '50%',
       height: '100%',
       width: "100%"
   }, 'slow', function(){
@@ -91,6 +103,7 @@ function closeModalProduct() {
     $('#navPr').css('display', 'none');
     $('.containeImgPr').css('height', '100%');
     $('.footerPr').css('bottom', '-57px');
+    $('.footerPr').css('borderRadius,', '50%');
   });
    
 }
@@ -103,19 +116,33 @@ async function addToCart() {
   let cartTmp = [];
   if (window.localStorage.getItem('cart') != undefined) {
     cartTmp = await JSON.parse( window.localStorage.getItem('cart') );
+  }else{
+    window.localStorage.setItem('cart', JSON.stringify(cartTmp))
   }
-  console.log($('.data>.price',productSelect).html());
+
+  const repeat = cartTmp.find(Element => Element.id === productSelect._id);
+  console.log(repeat);
+  if (repeat != undefined) {
+    const index = cartTmp.indexOf(repeat);
+    cartTmp[index].cant = countPr;
+    window.localStorage.setItem('cart', JSON.stringify(cartTmp))
+    alert('added')
+    return
+  }
+  console.log($('.nameStore').html());
   cartTmp.push({
-    img: $('img',productSelect).attr('src'),
-    name: $('.data>strong>.name',productSelect).html(),
+    id: productSelect._id,
+    img: productSelect.img,
+    name: productSelect.name,
     store: $('.nameStore').html(),
-    price: $('.data>.price>.priceVal',productSelect).html(),
+    price: productSelect.price,
     cant: countPr,
 })
   window.localStorage.setItem('cart', JSON.stringify(cartTmp))
+  alert('added')
 }
 
-let countPr = 1;
+
 
 function minus() {
   if (countPr>1) {
@@ -127,4 +154,21 @@ function minus() {
 function plus() {
   countPr++;
   $('#countPr').html(countPr)
+}
+
+function renderInformation() {
+  $('#bannerStore').attr('src', store.banner);
+  $('#logoStore').attr('src', store.logo);
+  $('.nameStore').html(store.name);
+  store.products.forEach(product => {
+    $('#productosList').append(`
+    <div onclick="openModalProduct(this);" data-idPr="${product._id}" class="product touchable animate__animated animate__bounceIn">
+                    <img src="${product.img}" alt="">
+                    <div class="data">
+                        <strong><div class="name">${product.name}</div></strong>
+                        <div class="price">$ <span class="priceVal">${product.price}</span></div>
+                    </div>
+                </div>
+    `)
+  });
 }

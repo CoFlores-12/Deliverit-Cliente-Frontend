@@ -196,7 +196,7 @@ window.onload = async () => {
     $('#btnConf').click(function (e) { 
         e.preventDefault();
         var servicefee = Number((distance*0.3)).toFixed(2)
-        $('#services').html('$' + servicefee);
+        $('#services').html(servicefee);
         dibujarProductos();
         $('#modalAddress').css('display', 'none');
         document.querySelector('#btnCheckout').disabled = false;

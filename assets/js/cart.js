@@ -57,7 +57,7 @@ async function dibujarProductos() {
     totalPrice += (cart[i]['price']*cart[i]['cant']);
     document.getElementById('listProducts').innerHTML += product;
 }
-document.getElementById('priceTotal').innerHTML = '$'+Number((totalPrice).toFixed(2));
+document.getElementById('priceTotal').innerHTML = Number((totalPrice).toFixed(2));
 }
 
 dibujarProductos();
@@ -462,10 +462,10 @@ function pay() {
     const expirationdate = document.getElementById('expirationdatePay');
     const securitycode = document.getElementById('securitycodePay');
     
-     $(name).removeAttr('aria-invalid');
-     $(cardnumber).removeAttr('aria-invalid');
-      $(expirationdate).removeAttr('aria-invalid');
-       $(securitycode).removeAttr('aria-invalid');
+    $(name).removeAttr('aria-invalid');
+    $(cardnumber).removeAttr('aria-invalid');
+    $(expirationdate).removeAttr('aria-invalid');
+    $(securitycode).removeAttr('aria-invalid');
        
     if (name.value==='') {
       $(name).attr('aria-invalid', "true" );
@@ -484,21 +484,40 @@ function pay() {
       return
     }
 
-    const user = {
-        name: 'admin',
-        email: 'admin',
-    }
-
+    var date = new Date();
+	var current_date = date.getFullYear()+"/"+(date.getMonth()+1)+"/"+ date.getDate();
+	var current_time = date.getHours()+":"+date.getMinutes();
+	var date_time = current_time+" - "+current_date;
+    const cookieValue = document.cookie
+    .split('; ')
+    .find((row) => row.startsWith('id='))
+    ?.split('=')[1];
     const pedido = {
-        user: user,
-        productos: cart,
+        idClient: cookieValue,
+        service: $('#services').html(),
+        total: $('#priceTotal').html(),
+        date: date_time,
+        products: cart,
         location: locations,
         payment: {
-            name: name.value,
-            cardnumber: cardnumber.value
+            credit_card_name: name.value,
+            credit_card_number: cardnumber.value
         }
     }
     console.log("🚀 ~ file: cart.js ~ line 474 ~ pay ~ pedido", pedido)
 
-    window.location.href = 'order.html?app=deliverit&ID=123342'
+
+    const settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://localhost:3000/client/CreateOrder",
+            "method": "POST",
+            beforeSend: function(xhr){
+                xhr.withCredentials = true;
+             },
+            data: JSON.parse(JSON.stringify(pedido))}
+        
+    $.ajax(settings).done(function (response) {
+        window.location.href = 'order.html?app=deliverit&ID='+response.id
+    });
 }

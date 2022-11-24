@@ -45,15 +45,15 @@ function loginClick() {
     if (email.length >0 && pass.length > 0) {
         $('#modalLoading').css('display', 'flex');
 
+        //$.post(URL, DATA)
         $.post("http://localhost:3000/client/login", {
             "email": email,
             "password": pass
         }).done(function (response) {
-            console.log(response);
             document.cookie = 'username='+response.username+'; expire=31536000;';
             document.cookie = 'id='+response._id+'; expire=31536000;';
             $('#modalLoading').css('display', 'none');
-            //window.location.href = 'home.html';
+            window.location.href = 'home.html';
         }).fail(function(xhr, status, res) {
             $('#infoLog').html(xhr.responseText);
             $('#infoLog').css('display', 'inline');

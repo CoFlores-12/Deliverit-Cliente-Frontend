@@ -25,7 +25,7 @@
                 <nav id="navPr" class="row center-y">
                     <i class="fa-solid fa-arrow-left btnIcon" onclick="closeModalProduct()"></i>
                     <h3 id="categoryNameNav"></h3>
-                    <div class="cart"><i class="fa-solid fa-cart-shopping cartIcon btnIcon"></i></div>
+                    <div onclick="cart()" class="cart"><i class="fa-solid fa-cart-shopping cartIcon btnIcon"></i></div>
                 </nav>
                 <div class="containeImgPr">
                     <img id="imgPr" src="/assets/img/tmp/image_2022-10-12_221845364-removebg-preview.png" alt="">
@@ -41,19 +41,8 @@
                                 <div onclick="plus()" class="IconsPr circlePr"><i class="fa-solid fa-plus "></i></div>
                                 
                             </div>
-                            <div class="dataPr">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. A mollitia atque possimus sit inventore accusantium dolor et corporis sed ipsum doloremque, excepturi odit architecto, ipsam velit earum. Animi, alias cum.
-                                Provident quasi ex illo aspernatur commodi impedit est dolor vel, nisi autem alias delectus error eius nulla ipsa quos labore iure! Quos aliquam molestiae excepturi temporibus! Dolore odio quod enim.
-                                Nisi pariatur amet quisquam voluptas possimus nihil dolorem culpa, officiis sunt repellat distinctio optio, doloremque voluptatum, cum fugiat facere nostrum vitae? Minus nisi, quia rerum vitae obcaecati corrupti nemo et?
-                                Hic laboriosam tempore voluptatibus, maiores nemo eveniet quam laudantium possimus eaque fugit blanditiis. Est doloremque repellendus, ex voluptatum dolorem nisi dolores voluptatem nemo ipsam, totam dignissimos. Perferendis eum consequuntur cupiditate.
-                                Ad ea nam aut necessitatibus minima ullam soluta eligendi nemo ipsa, repellendus reprehenderit, dolorum voluptatibus iusto delectus temporibus dolorem, fuga fugit recusandae ipsam nostrum quae? Quam nemo iusto quod officiis?
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. A mollitia atque possimus sit inventore accusantium dolor et corporis sed ipsum doloremque, excepturi odit architecto, ipsam velit earum. Animi, alias cum.
-                                Provident quasi ex illo aspernatur commodi impedit est dolor vel, nisi autem alias delectus error eius nulla ipsa quos labore iure! Quos aliquam molestiae excepturi temporibus! Dolore odio quod enim.
-                                Nisi pariatur amet quisquam voluptas possimus nihil dolorem culpa, officiis sunt repellat distinctio optio, doloremque voluptatum, cum fugiat facere nostrum vitae? Minus nisi, quia rerum vitae obcaecati corrupti nemo et?
-                                Hic laboriosam tempore voluptatibus, maiores nemo eveniet quam laudantium possimus eaque fugit blanditiis. Est doloremque repellendus, ex voluptatum dolorem nisi dolores voluptatem nemo ipsam, totam dignissimos. Perferendis eum consequuntur cupiditate.
-                                Ad ea nam aut necessitatibus minima ullam soluta eligendi nemo ipsa, repellendus reprehenderit, dolorum voluptatibus iusto delectus temporibus dolorem, fuga fugit recusandae ipsam nostrum quae? Quam nemo iusto quod officiis?
-                            </div>
                         </div>
+                        <div id="dataPr"></div>
                     </div>
                 </div>
                 <div class="footerPr row center-y">
@@ -71,57 +60,16 @@
                 <div  onclick="cart()" class="cart"><i class="fa-solid fa-cart-shopping cartIcon btnIcon"></i></div>
             </nav>
             <div class="infoStore">
-                <img src="https://previews.123rf.com/images/rouslan/rouslan1902/rouslan190200016/131040531-moscú-rusia-12-de-febrero-de-2019-menú-de-hamburguesas-big-mac-en-mcdonald.jpg?fj=1" alt="">
+                <img src="" alt="" id="bannerStore">
                 <div class="dataStore row center-y">
-                    <img src="https://javiereldegilmarquez.files.wordpress.com/2012/06/mcdonald-y-el-sr-pc3a9rez.jpg" alt="">
-                    <strong class="nameStore">McDonalds</strong>
+                    <img src="" alt="" id="logoStore">
+                    <strong class="nameStore"></strong>
                 </div>
             </div>
         </div>
         <main>
-            <div class="search row center-xy">
-                <div class="group row center-y">
-                    <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><g><path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path></g></svg>
-                    <input placeholder="Search" type="search" class="input">
-                  </div>
-            </div>
-
-            <div class="productosList">
-    <div onclick="openModalProduct(this);" class="product touchable col center-x animate__animated animate__bounceIn">
-                    <img src="/assets/img/tmp/image_2022-10-12_221845364-removebg-preview.png" alt="">
-                    <div class="data">
-                        <strong><div class="name">spicy crispy</div></strong>
-                        <div class="price">$ <span class="priceVal">12.99</span></div>
-                    </div>
-                </div>
-                <div onclick="openModalProduct(this);" class="product touchable animate__animated animate__bounceIn">
-                    <img src="/assets/img/tmp/image_2022-10-12_221908157-removebg-preview.png" alt="">
-                    <div class="data">
-                        <strong><div class="name">Big Mac chees chicken pro max contador de pruebas para generar espacios dinamicos</div></strong>
-                        <div class="price">$ <span class="priceVal">12.99</span></div>
-                    </div>
-                </div>
-                <div onclick="openModalProduct(this);" class="product touchable animate__animated animate__bounceIn">
-                    <img src="/assets/img/tmp/image_2022-10-12_221908157-removebg-preview.png" alt="">
-                    <div class="data">
-                        <strong><div class="name">Big Mac chees chicken pro max</div></strong>
-                        <div class="price">$ <span class="priceVal">12.99</span></div>
-                    </div>
-                </div>
-                <div onclick="openModalProduct(this);" class="product touchable col center-x animate__animated animate__bounceIn">
-                    <img src="/assets/img/tmp/image_2022-10-12_221845364-removebg-preview.png" alt="">
-                    <div class="data">
-                        <strong><div class="name">spicy crispy</div></strong>
-                        <div class="price">$ <span class="priceVal">12.99</span></div>
-                    </div>
-                </div>
-                <div onclick="openModalProduct(this);" class="product touchable col center-x animate__animated animate__bounceIn">
-                    <img src="/assets/img/tmp/image_2022-10-12_221845364-removebg-preview.png" alt="">
-                    <div class="data">
-                        <strong><div class="name">spicy crispy</div></strong>
-                        <div class="price">$ <span class="priceVal">12.99</span></div>
-                    </div>
-                </div>
+            <div id="productosList" class="productosList">
+                
             </div>
 
         </main>
