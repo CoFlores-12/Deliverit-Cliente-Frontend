@@ -177,7 +177,10 @@ window.onload = async () => {
 
 
     control.on('routesfound', function(e) {
-        console.log(L.Routing.routeToGeoJson(e.routes[0]));
+        locations = [];
+        e.routes[0].waypoints.forEach(coor => {
+            locations.push(L.latLng(coor.latLng.lat, coor.latLng.lng))
+        });
     });
 
     L.Routing.errorControl(control).addTo(map1);

@@ -1,29 +1,4 @@
-let cart = JSON.parse(window.localStorage.getItem('cart'));
-
-cart = [
-    {
-        img: 'assets/img/tmp/image_2022-10-12_221845364-removebg-preview.png',
-        name: 'Burger',
-        store: 'Burger King',
-        price: '12.99',
-        cant: '1',
-    },
-    {
-        img: 'https://www.pngall.com/wp-content/uploads/4/Pepperoni-Dominos-Pizza-PNG-Picture.png',
-        name: 'Pizza',
-        store: 'Pizza Hut',
-        price: '15.99',
-        cant: '2',
-    },
-    {
-        img: 'https://www.freepnglogos.com/uploads/fried-chicken-png/crispy-fried-chicken-png-0.png',
-        name: 'Chicken',
-        store: 'KFC',
-        price: '9.99',
-        cant: '1',
-    }
-];
-
+let cart = [];
 var totalPrice = 0;
 
 async function dibujarProductos() {
@@ -504,8 +479,6 @@ function pay() {
             credit_card_number: cardnumber.value
         }
     }
-    console.log("🚀 ~ file: cart.js ~ line 474 ~ pay ~ pedido", pedido)
-
 
     const settings = {
             "async": true,
@@ -518,6 +491,7 @@ function pay() {
             data: JSON.parse(JSON.stringify(pedido))}
         
     $.ajax(settings).done(function (response) {
+        window.localStorage.setItem('cart', JSON.stringify([]))
         window.location.href = 'order.html?app=deliverit&ID='+response.id
     });
 }
