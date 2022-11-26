@@ -130,7 +130,7 @@
         (() => {
             const options = {method: 'GET',credentials: 'include'};
 
-            fetch('http://localhost:3000/client/orders', options)
+            fetch('https://deliverit-backend.vercel.app/client/orders', options)
             .then(response => response.json())
             .then(response => {
                 orders = response;
