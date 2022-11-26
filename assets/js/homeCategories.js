@@ -32,7 +32,6 @@ let dataShop = [];
                     '<img class="logoShop" src="'+logo+'" loading="lazy">'+
                     '<div class="shopinfo col">'+
                         '<strong>'+shop['name']+'</strong><br>'+
-                        '<span class="desc">'+shop['description']+'</span>'+
                     '</div>'+
                 '</div>'+
             '</div>';

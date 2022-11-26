@@ -1,4 +1,6 @@
-if(window.location.hostname == '127.0.0.1'){window.location.href = 'http://localhost:5500/login.html'}
+if(window.location.hostname !== 'localhost'){
+    window.location.href = 'http://localhost:'+window.location.port+'/login.html'
+}
 
 function logTabs(element) {
     let elementClick = $(element).attr('data-name') == "Login" ? true : false;

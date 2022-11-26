@@ -18,7 +18,7 @@ async function dibujarProductos() {
             '</div>'+
                 '<div class="col infoProduct">'+
                     '<div class="nameProduct">'+cart[i]['name']+'</div>'+
-                    '<div class="storeName">'+cart[i]['store']+'</div>'+
+                    '<div class="storeName">'+cart[i]['store'].name+'</div>'+
                     '<div class="row priceCant">'+
                         '<div class="price">$'+cart[i]['price']+'</div>'+
                         '<div class="cant row center-y">'+
@@ -111,15 +111,24 @@ async function minus(elment) {
 const confirm = document.getElementById('delete');
 const cancel = document.getElementById('cancel');
 
-
-
-
 function deleteProduct() {
     cart.splice(indexToDelete,1);
     window.localStorage.setItem('cart', JSON.stringify(cart));
+    let stores = [];
+    const locTMP =locations[locations.length-1];
+    locations = [];
+    cart.forEach(element => {
+       if (stores.indexOf(element.store.id) === -1) {
+            stores.push(element.store.id)
+            locations.push(L.latLng(element.store.location.lat, element.store.location.lng))
+       }
+    });
+    locations.push(locTMP);
+    location.reload()
     closeModalDelete();
     dibujarProductos();
  }
+
 
  async function deleteAll() {
     $('.nameProductToDelete').html('All');
@@ -480,6 +489,9 @@ function pay() {
         }
     }
 
+    if (cart.length === 0) {
+        return
+    }
     const settings = {
             "async": true,
             "crossDomain": true,

@@ -161,7 +161,9 @@ nav {
 .imgProduct {
     width: 30%;
 }
-
+main {
+    padding-bottom: 180px;
+}
 .imgProduct > img {
     width: auto;
     height: auto;

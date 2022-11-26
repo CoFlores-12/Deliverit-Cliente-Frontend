@@ -121,7 +121,6 @@ async function addToCart() {
   }
 
   const repeat = cartTmp.find(Element => Element.id === productSelect._id);
-  console.log(repeat);
   if (repeat != undefined) {
     const index = cartTmp.indexOf(repeat);
     cartTmp[index].cant = countPr;
@@ -129,20 +128,22 @@ async function addToCart() {
     alert('added')
     return
   }
-  console.log($('.nameStore').html());
+
   cartTmp.push({
     id: productSelect._id,
     img: productSelect.img,
     name: productSelect.name,
-    store: $('.nameStore').html(),
+    store: {
+      id: store._id,
+      name: store.name,
+      location: store.location
+    },
     price: productSelect.price,
     cant: countPr,
 })
   window.localStorage.setItem('cart', JSON.stringify(cartTmp))
   alert('added')
 }
-
-
 
 function minus() {
   if (countPr>1) {

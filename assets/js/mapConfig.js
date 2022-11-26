@@ -1,9 +1,18 @@
-let locations = [
-    L.latLng(14.059899, -87.220381),
-    L.latLng(14.053579, -87.221811)
-];
+let locations = [];
+
 
 window.onload = async () => {
+    let cart = [];
+    let stores = [];
+    if (window.localStorage.getItem('cart') != undefined) {
+        cart = JSON.parse(window.localStorage.getItem('cart'));
+    }
+    cart.forEach(element => {
+       if (stores.indexOf(element.store.id) === -1) {
+            stores.push(element.store.id)
+            locations.push(L.latLng(element.store.location.lat, element.store.location.lng))
+       }
+    });
 
     const getCoords = async () => {
         var userAce = true;
@@ -208,4 +217,6 @@ window.onload = async () => {
 
     loadCard();
     $('#loading').css('display', 'none')
+
 }
+
