@@ -128,9 +128,13 @@
         }
 
         (() => {
-            const options = {method: 'GET',credentials: 'include'};
+            const cookieValue = document.cookie
+            .split('; ')
+            .find((row) => row.startsWith('id='))
+            ?.split('=')[1];
+            const options = {method: 'GET',credentials: 'include',};
 
-            fetch('http://localhost:3000/client/orders', options)
+            fetch('http://localhost:3000/client/orders/'+cookieValue, options)
             .then(response => response.json())
             .then(response => {
                 orders = response;

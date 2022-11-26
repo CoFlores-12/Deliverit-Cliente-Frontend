@@ -81,7 +81,7 @@ function signClick() {
             document.cookie = 'username='+response.username+'; expire=31536000;';
             document.cookie = 'id='+response._id+'; expire=31536000;';
             $('#modalLoading').css('display', 'none');
-            //window.location.href = 'home.html';
+            window.location.href = 'home.html';
         }).fail(function(xhr, status, res) {
             $('#infoLog').html(xhr.responseText);
             $('#infoLog').css('display', 'inline');
