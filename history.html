@@ -134,7 +134,9 @@
             ?.split('=')[1];
             const options = {method: 'GET',credentials: 'include',};
 
+
             fetch('http://localhost:3000/client/orders/'+cookieValue, options)
+
             .then(response => response.json())
             .then(response => {
                 orders = response;

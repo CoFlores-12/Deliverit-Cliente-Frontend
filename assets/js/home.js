@@ -42,7 +42,7 @@ var elements = [
     const settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://localhost:3000/categories",
+        "url": "https://deliverit-backend.vercel.app/categories",
         "method": "GET",
         "headers": {}
       };

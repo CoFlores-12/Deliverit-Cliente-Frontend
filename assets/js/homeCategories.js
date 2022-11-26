@@ -6,7 +6,7 @@ let dataShop = [];
     let settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://localhost:3000/stores/" + IDcategory,
+            "url": "https://deliverit-backend.vercel.app/stores/" + IDcategory,
             "method": "GET"}
     await $.ajax(settings).done(function (response) {
         dataShop = response
@@ -15,7 +15,7 @@ let dataShop = [];
     settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://localhost:3000/categories/" + IDcategory,
+        "url": "https://deliverit-backend.vercel.app/categories/" + IDcategory,
         "method": "GET"}
     await $.ajax(settings).done(function (response) {
         $('#categoryNameNav').html(response[0].name);

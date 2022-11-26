@@ -1,7 +1,3 @@
-if(window.location.hostname !== 'localhost'){
-    window.location.href = 'http://localhost:'+window.location.port+'/login.html'
-}
-
 function logTabs(element) {
     let elementClick = $(element).attr('data-name') == "Login" ? true : false;
     if (elementClick) {
@@ -48,7 +44,7 @@ function loginClick() {
         $('#modalLoading').css('display', 'flex');
 
         //$.post(URL, DATA)
-        $.post("http://localhost:3000/client/login", {
+        $.post("https://deliverit-backend.vercel.app/client/login", {
             "email": email,
             "password": pass
         }).done(function (response) {
@@ -73,7 +69,7 @@ function signClick() {
     if (email.length > 0 && pass.length > 0 && name.length > 0) {
         $('#modalLoading').css('display', 'flex');
 
-        $.post("http://localhost:3000/client/signin", {
+        $.post("https://deliverit-backend.vercel.app/client/signin", {
             "username": name,
             "email": email,
             "password": pass

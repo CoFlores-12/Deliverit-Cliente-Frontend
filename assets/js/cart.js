@@ -495,7 +495,7 @@ function pay() {
     const settings = {
             "async": true,
             "crossDomain": true,
-            "url": "http://localhost:3000/client/CreateOrder",
+            "url": "https://deliverit-backend.vercel.app/client/CreateOrder",
             "method": "POST",
             beforeSend: function(xhr){
                 xhr.withCredentials = true;

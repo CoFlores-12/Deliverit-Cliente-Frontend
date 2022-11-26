@@ -7,7 +7,7 @@ let store = [];
   const settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost:3000/store/"+storeID,
+    "url": "https://deliverit-backend.vercel.app/store/"+storeID,
     "method": "GET",
     "headers": {}
   };
