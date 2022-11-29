@@ -50,7 +50,7 @@
                 <i class="fa-solid fa-route"></i>
                 <span id="status2">order on the way</span>
                     <button class="wayIcon">
-                        <a href="tel:5551234567">
+                        <a id="callTo" href="tel:5551234567">
                             <i  class="fa-solid fa-phone "></i>
                         </a>
                     </button>
@@ -150,6 +150,7 @@
                 $('.preparingIcon').addClass('fa-check');
                 $('.deliveredIcon').addClass('fa-clock');
                 $('#status2').addClass('statusStrong');
+                $('#callTo').attr('href', 'tel:' + order.dealer.tel);
             }
             if (order.status === 'Preparing') {
                 $('.preparing').append(icon0);
